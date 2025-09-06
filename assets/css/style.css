@@ -67,14 +67,24 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .card .meta{color:var(--muted)}
 .card-actions{display:flex;gap:8px;margin-top:12px}
 .card-list{padding-left:18px}
+.card h3 a{color:var(--text);text-decoration:none;transition:color 0.3s ease}
+.card h3 a:hover{color:var(--emerald)}
+.list a{color:var(--text);text-decoration:none;transition:color 0.3s ease}
+.list a:hover{color:var(--emerald)}
 
 .accordion{width:100%;text-align:left;background:linear-gradient(135deg, var(--surface) 0%, #f8fafc 100%);border:1px solid var(--border);padding:10px 12px;border-radius:8px;cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden;margin-bottom:8px}
-.accordion:nth-child(odd){background:linear-gradient(135deg, #109DB9 0%, #0d7a8a 100%);color:#fff;border-color:#109DB9}
-.accordion:nth-child(even){background:linear-gradient(135deg, #10B92D 0%, #0d8a1a 100%);color:#fff;border-color:#10B92D}
 .accordion::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(16,185,129,0.1), transparent);transition:left 0.5s ease}
 .accordion:hover::before{left:100%}
-.accordion:nth-child(odd):hover{background:linear-gradient(135deg, #0d7a8a 0%, #109DB9 100%);transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,157,185,0.3)}
-.accordion:nth-child(even):hover{background:linear-gradient(135deg, #0d8a1a 0%, #10B92D 100%);transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,185,45,0.3)}
+
+/* Work Experience Role buttons - all #109DB9 */
+#experience .accordion{background:#109DB9;color:#fff;border-color:#109DB9}
+#experience .accordion:hover{background:#0d7a8a;transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,157,185,0.3)}
+
+/* Skills section - alternating colors */
+#skills .accordion:nth-child(odd){background:#109DB9;color:#fff;border-color:#109DB9}
+#skills .accordion:nth-child(even){background:#10B981;color:#fff;border-color:#10B981}
+#skills .accordion:nth-child(odd):hover{background:#0d7a8a;transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,157,185,0.3)}
+#skills .accordion:nth-child(even):hover{background:#059669;transform:translateY(-2px);box-shadow:0 4px 12px rgba(16,185,129,0.3)}
 .accordion[aria-expanded="true"]{border-color:var(--emerald)}
 .accordion-panel{display:none;padding:12px 0}
 .accordion-panel.open{display:block}
