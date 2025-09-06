@@ -1,0 +1,109 @@
+AYANANTA CHOWDHURY
+(Au-yoh-nahn-toh Chou-dhoo-ree)
+Senior Manager - Technical Writing
+ Phone - 9730821120 | Email - ayananta.chowdhury@gmail.com
+ Kolkata, India | US Visa B1-B2 | Passport: T3382014
+PROFESSIONAL SUMMARY
+Technical Writer and User Assistance Specialist with 16+ years of experience crafting intuitive guidance
+built into the product as well as external documentation for SaaS, ERP, computer networking, healthcare,
+telecommunications, and finance domains, among others. Achievements include reducing support
+tickets by 73.24% and accelerating onboarding by 48% for an SAP product during employment with HCL
+Tech, and lowering the time to configure SugarBox Networks’ hyperlocal CDN with the Origin server of app
+partners by 31.44%. Proficient in DITA, AI tools, and Agile workflows. Led teams at HCL and SugarBox.
+Expert in Content Strategy, Information Architecture, Knowledge Management, Content Governance,
+Content Lifecycle, Single-sourcing, Localization, and Content Design. Have knowledge of Docs-as-Code
+(GitHub-flavored Markdown, Git version control system, CI/CD pipeline, JIRA). About to be Microsoft
+Certified in AI.
+KEY SKILLS
+• TRADITIONAL TECHNICAL WRITING: Explaining product functionality and feature utilities to
+users and guiding them through the steps via printed and online documentation, using various
+authoring tools.
+• MODERN TECHNICAL WRITING (UX WRITING): Embedding intuitive guidance, like tooltips,
+mouse-hover messages, guided tours, among other microcopy, directly into the UI to seamlessly
+assist users, offering a seamless user experience
+• AI-POWERED TECHNICAL WRITING: Using AI to generate drafts and review content, receive
+intelligent content suggestions, flag localization issues in content, translate content, determine
+usage analytics, check for accessibility, check for compliance with company style-guide, adapt
+content based on target audience, and to create interactive tutorials.
+• AGENTIC USER ASSISTANCE: Using AI chatbots that are trained on help documentation to
+answer user queries.
+• VIDEO TUTORIALS: Producing short video tutorials to explain concepts and guide through step
+procedures, using Camtasia or Captivate.
+• WORKFLOW AND ARCHITECTURAL DIAGRAMS: Creating flowcharts and refining architectural
+diagrams, using Visio.
+• MAINTENANCE DOCUMENTATION: Compiling release notes, writing what’s new doc, and
+creating hotfix documents.
+• API DOCUMENTATION: Writing conceptual as well as reference sections, using Swagger UI.
+• TRAINING AND SUPPORT DOCUMENTATION: Creating training PPTs, e-Learning modules, and
+Troubleshooting Guides
+• TECHNICAL DOCUMENTATION: Reviewing steps of Installation and Configurations guides by
+following the steps to install or deploy the application. Creating Administrator’s guides for system
+administrators. Maintaining the Operation guide to ensure the procedure to perform various
+operations are up to date. For all the above documents, ensuring the content is company style
+guide-complaint is a common task.
+• PROCESS AND POLICY DOCUMENTS: Reviewing SOPs and Runbooks for grammar and better
+sentence construction, and compliance with standards.
+• CONTENT CREATION FOR INTERNAL DOCUMENTS: Creating content for certain sections of the
+Newsletter.
+• MARKETING-ADJACENT CONTENT CREATION: Creating content for technical blogs, white
+papers, and case studies.
+• MISCELLANEOUS CONTENT DEVELOPMENT: Writing any other content, for example Patent
+Application documents.
+WORK EXPERIENCE
+HCL TECHNOLOGIES | Senior Technical Manager - User Assistance | Mar 2023 – Apr 2025
+• Led documentation for SAP Business ByDesign ERP: Authored and reviewed UI text, guided tours,
+hotfix docs, release notes, and "What’s New" content. Extensively used Oxygen XML for
+authoring purposes.
+• Reduced support tickets by 73.24% and accelerated onboarding by 48% via embedded in-app
+guidance.
+• Produced sprint-based What’s New videos, highlighting key feature enhancements.
+• Mentored team members: Assigned work, reviewed work of team members, and provided
+feedback for improvement. Checked for style guide compliance, language effectiveness, and
+adherence to other technical writing good practices.
+SUGARBOX NETWORKS | Manager – Technical Communications | Aug 2020 – Sept 2022
+• Authored, reviewed, and managed team deliverables and built internal knowledge base (KB) for
+hyperlocal CDN solutions.
+• Helped lower partner integration time for Origin server setup by 31.44% by developing a
+configuration guide that explained complex concepts and operations in a way that even nontechnical people can understand.
+• Authored API docs, technical blogs, case studies, and patent application documents. Extensively
+used Confluence for authoring purposes.
+HCL SOFTWARE | Senior Consultant - Technical Writing | Nov 2018 – Mar 2020
+• Developed product documentation, release notes, and API references for a data-engineering
+solution.
+• Collaborated with cross-functional teams to refine UI text accuracy and syntax.
+PERSISTENT SYSTEMS | Information Developer – Team Lead | Nov 2013 – May 2017
+• Created eLearning videos for medical device MVPs.
+• Developed user/installation guides for VMware’s vRealize Network Insight. Extensively used
+Arbortext DITA XML Editor for authoring purposes.
+• In an IBM project, worked on updating the product documentation and maintaining the
+operations guide. Also, successfully migrated the Operations Guide from the legacy MS Word to
+XML format
+ROLTA INDIA | Senior Technical Writer | Aug 2012 – Jul 2013
+• Developed content for new feature-enhancements for a GIS-based application belonging to the
+military domain. Used RoboHelp for authoring purposes.
+POLARIS SOFTWARE LAB | Technical Writer | Oct 2010 – Aug 2012
+• For a banking and finance software, co-authored the user guide. Also validated the
+Installation and Configuration Guide by installing and configuring the product reading
+the step-by-step instructions mentioned in the document.
+CONNECTIVA SYSTEMS | Technical Writer | Feb 2008 – Sept 2010
+• For a telecom product, developed content for new-feature enhancements and worked on training
+PPTs.
+COMPARE INFOBASE | Content Writer | Jan 2007 – Dec 2008
+After post-graduating in Mass Communication and Journalism, I began my career as a Content Writer with
+this company, writing content for travel websites.
+EDUCATION
+• Post-Graduate, Mass Communication & Journalism | Calcutta University (2006)
+• B. Com (Hons) | Calcutta University, 2002-2005
+• ISC & ICSE | Assembly of God Church School, Kolkata, 2002
+CERTIFICATIONS
+• Undergoing a 6-month Microsoft Certification course on AI and Generative AI
+• API Documentation
+• Swagger and Open API Specification
+• Camtasia Essentials
+• Git and GitHub for Writers
+• JavaScript Programming
+• UX Writing
+• DITA XML
+SOCIALS
+• LinkedIn - https://www.linkedin.com/in/ayanantachowdhury/
+• Personal Blog - Ayananta Chowdhury: Freelance Writer and Blogger | Mr. Ayananta Chowdhury
