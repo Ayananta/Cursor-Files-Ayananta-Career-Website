@@ -92,10 +92,34 @@
         </div>
       </section>
 
+
       <section id="achievements" class="section" aria-label="Achievements">
         <div class="section-box">
           <h2>Achievements</h2>
           <p>Achievements include reducing support tickets by 73.24% and accelerating onboarding by 48% for an SAP product during employment with HCL Tech, and lowering the time to configure SugarBox Networks' hyperlocal CDN with the Origin server of app partners by 31.44%. Proficient in DITA, AI tools, and Agile workflows. Led teams at HCL and SugarBox.</p>
+        </div>
+      </section>
+
+      <section id="artifacts" class="section" aria-label="Artifacts">
+        <div class="section-box">
+          <h2>Artifacts</h2>
+          <div class="artifacts-grid">
+            <div class="artifact-item">Microcopy (UI texts)</div>
+            <div class="artifact-item">User Manuals</div>
+            <div class="artifact-item">Installation and Configuration Manuals</div>
+            <div class="artifact-item">Administrator's Manuals</div>
+            <div class="artifact-item">Operations Manuals</div>
+            <div class="artifact-item">Corporate Training Manuals</div>
+            <div class="artifact-item">FAQ and Troubleshooting Guides</div>
+            <div class="artifact-item">Release Notes</div>
+            <div class="artifact-item">What's New</div>
+            <div class="artifact-item">Hotfix Docs</div>
+            <div class="artifact-item">API Documentation</div>
+            <div class="artifact-item">Onboarding Guides</div>
+            <div class="artifact-item">Knowledge Bases</div>
+            <div class="artifact-item">Newsletter Content</div>
+            <div class="artifact-item">Technical Blogs</div>
+          </div>
         </div>
       </section>
 
@@ -269,16 +293,6 @@
             <h3>API Documentation</h3>
             <p>Writing conceptual as well as reference sections, using Swagger UI.</p>
           </article>
-          <article class="skill-card" data-category="tools">
-            <div class="skill-icon">🛠️</div>
-            <h3>Tools & Technologies</h3>
-            <p>DITA, Oxygen XML, Arbortext DITA XML Editor, Confluence, RoboHelp, Visio, Camtasia, Captivate, Swagger UI, Git, GitHub, JIRA, AI tools, Agile workflows.</p>
-          </article>
-          <article class="skill-card" data-category="domains">
-            <div class="skill-icon">🏢</div>
-            <h3>Domains & Industries</h3>
-            <p>SaaS, ERP, computer networking, healthcare, telecommunications, finance, FinTech, Cloud, Security, Data Platforms, GIS, military domain, banking and finance, telecom.</p>
-          </article>
         </div>
         </div>
       </section>
@@ -288,47 +302,18 @@
           <h2>Expertise Overview</h2>
           <div class="expertise-container">
             <div class="expertise-section">
-              <h3>Artifacts</h3>
-              <div class="artifacts-grid">
-                <div class="artifact-item">Microcopy (UI texts)</div>
-                <div class="artifact-item">User Manuals</div>
-                <div class="artifact-item">Installation and Configuration Manuals</div>
-                <div class="artifact-item">Administrator's Manuals</div>
-                <div class="artifact-item">Operations Manuals</div>
-                <div class="artifact-item">Corporate Training Manuals</div>
-                <div class="artifact-item">FAQ and Troubleshooting Guides</div>
-                <div class="artifact-item">Release Notes</div>
-                <div class="artifact-item">What's New</div>
-                <div class="artifact-item">Hotfix docs</div>
-                <div class="artifact-item">API docs</div>
-                <div class="artifact-item">Onboarding Guides</div>
-                <div class="artifact-item">Knowledge Bases</div>
-              </div>
-            </div>
-            <div class="expertise-section">
               <h3>Toolstack</h3>
               <div class="toolstack-grid">
-                <div class="tool-item">DITA XML Editor</div>
-                <div class="tool-item">Confluence</div>
-                <div class="tool-item">Google Docs</div>
-                <div class="tool-item">Microsoft Office</div>
-                <div class="tool-item">IxiaSoft</div>
-                <div class="tool-item">Camtasia</div>
-                <div class="tool-item">Audacity</div>
-                <div class="tool-item">Visio</div>
-                <div class="tool-item">RoboHelp</div>
-                <div class="tool-item">Jira</div>
-                <div class="tool-item">Swagger UI</div>
-                <div class="tool-item">Postman</div>
-                <div class="tool-item">Cursor AI</div>
-                <div class="tool-item">Notebook LM</div>
-                <div class="tool-item">Piktochart</div>
-                <div class="tool-item">Otter.ai</div>
-                <div class="tool-item">Napkin</div>
-                <div class="tool-item">Claude</div>
-                <div class="tool-item">Deepseek</div>
-                <div class="tool-item">Git</div>
-                <div class="tool-item">Markdown</div>
+                <div class="tool-item"><a href="#" onclick="showTools('dita')">DITA XML EDITOR</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('authoring')">OTHER AUTHORING TOOL</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('diagramming')">DIAGRAMMING AND VIDEO</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('screencapture')">SCREEN CAPTURE</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('docslikecode')">DOCS-LIKE-CODE</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('api')">API DOCUMENTATION</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('ai')">AI TOOLS</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('project')">PROJECT MANAGEMENT</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('ticketing')">TICKETING</a></div>
+                <div class="tool-item"><a href="#" onclick="showTools('ccms')">CCMS</a></div>
               </div>
             </div>
             <div class="expertise-section">
@@ -556,6 +541,26 @@
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('sw.js');
       });
+    }
+
+    function showTools(category) {
+      const tools = {
+        'dita': ['Arbortext Editor', 'Oxygen XML Editor'],
+        'authoring': ['RoboHelp', 'MS Office', 'Google Docs', 'Confluence'],
+        'diagramming': ['Camtasia', 'Captivate', 'Audacity', 'Visio'],
+        'screencapture': ['SNAGit', 'Windows Snipping tool', 'Print Screen'],
+        'docslikecode': ['Markdown (GitHub-flavored)', 'Git'],
+        'api': ['Swagger UI', 'Postman'],
+        'ai': ['Cursor', 'Napkin', 'Piktochart', 'Notebook LM', 'Claude', 'Deepseek', 'ChatGPT', 'Otter'],
+        'project': ['JIRA'],
+        'ticketing': ['ServiceNow'],
+        'ccms': ['IxiaSoft']
+      };
+
+      const toolList = tools[category];
+      if (toolList) {
+        alert(toolList.join(', '));
+      }
     }
   </script>
   </html>
