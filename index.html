@@ -65,6 +65,7 @@
           </div>
           <div class="hero-copy">
             <h2 class="name-title">AYANANTA CHOWDHURY</h2>
+            <p class="phonetics">Au-yoh-nahn-toh Chou-dhoo-ree</p>
             <h1>Senior Manager Technical Writing</h1>
             <p class="tagline"><strong>16+ years transforming frustration with complex software applications into a smooth, seamless working experience.</strong></p>
             <p class="lede">Driven product success by embedding intuitive guidance directly into product UI—eliminating the need for users to break their workflow and leave the application to search external documentation. For complex workflows, complemented the built-in help with visually rich printed documentation, ensuring accurate and detailed coverage of information. Also, helped developers with smart API documentation.</p>
@@ -104,21 +105,30 @@
         <div class="section-box">
           <h2>Artifacts</h2>
           <div class="artifacts-grid">
-            <div class="artifact-item">Microcopy (UI texts)</div>
-            <div class="artifact-item">User Manuals</div>
-            <div class="artifact-item">Installation and Configuration Manuals</div>
-            <div class="artifact-item">Administrator's Manuals</div>
-            <div class="artifact-item">Operations Manuals</div>
-            <div class="artifact-item">Corporate Training Manuals</div>
-            <div class="artifact-item">FAQ and Troubleshooting Guides</div>
-            <div class="artifact-item">Release Notes</div>
-            <div class="artifact-item">What's New</div>
-            <div class="artifact-item">Hotfix Docs</div>
-            <div class="artifact-item">API Documentation</div>
-            <div class="artifact-item">Onboarding Guides</div>
-            <div class="artifact-item">Knowledge Bases</div>
-            <div class="artifact-item">Newsletter Content</div>
-            <div class="artifact-item">Technical Blogs</div>
+            <div class="artifact-item" onclick="showSubArtifacts('microcopy')">Microcopy (UI texts)</div>
+            <div class="artifact-item" onclick="showSubArtifacts('user-manuals')">User Manuals</div>
+            <div class="artifact-item" onclick="showSubArtifacts('installation')">Installation and Configuration Manuals</div>
+            <div class="artifact-item" onclick="showSubArtifacts('admin')">Administrator's Manuals</div>
+            <div class="artifact-item" onclick="showSubArtifacts('operations')">Operations Manuals</div>
+            <div class="artifact-item" onclick="showSubArtifacts('training')">Corporate Training Manuals</div>
+            <div class="artifact-item" onclick="showSubArtifacts('faq')">FAQ and Troubleshooting Guides</div>
+            <div class="artifact-item" onclick="showSubArtifacts('release')">Release Notes</div>
+            <div class="artifact-item" onclick="showSubArtifacts('whats-new')">What's New</div>
+            <div class="artifact-item" onclick="showSubArtifacts('hotfix')">Hotfix Docs</div>
+            <div class="artifact-item" onclick="showSubArtifacts('api')">API Documentation</div>
+            <div class="artifact-item" onclick="showSubArtifacts('onboarding')">Onboarding Guides</div>
+            <div class="artifact-item" onclick="showSubArtifacts('knowledge')">Knowledge Bases</div>
+            <div class="artifact-item" onclick="showSubArtifacts('newsletter')">Newsletter Content</div>
+            <div class="artifact-item" onclick="showSubArtifacts('blogs')">Technical Blogs</div>
+          </div>
+          
+          <!-- Sub-artifacts display area -->
+          <div id="sub-artifacts-display" class="sub-artifacts-container" style="display: none;">
+            <div class="sub-artifacts-header">
+              <h3 id="sub-artifacts-title"></h3>
+              <button class="close-sub-artifacts" onclick="closeSubArtifacts()">&times;</button>
+            </div>
+            <div id="sub-artifacts-content" class="sub-artifacts-grid"></div>
           </div>
         </div>
       </section>
@@ -561,6 +571,113 @@
       if (toolList) {
         alert(toolList.join(', '));
       }
+    }
+
+    function showSubArtifacts(category) {
+      const subArtifacts = {
+        'microcopy': [
+          'Button Labels', 'Error Messages', 'Success Notifications', 'Form Field Hints', 
+          'Navigation Labels', 'Tooltips', 'Loading States', 'Empty State Messages'
+        ],
+        'user-manuals': [
+          'Getting Started Guide', 'Feature Overview', 'Step-by-Step Procedures', 
+          'Troubleshooting Section', 'Glossary', 'Index', 'Quick Reference Card'
+        ],
+        'installation': [
+          'System Requirements', 'Pre-installation Checklist', 'Installation Steps', 
+          'Configuration Settings', 'Post-installation Verification', 'Uninstallation Guide'
+        ],
+        'admin': [
+          'User Management', 'Security Settings', 'Backup & Recovery', 'Performance Tuning', 
+          'Monitoring & Alerts', 'Integration Setup', 'Maintenance Procedures'
+        ],
+        'operations': [
+          'Daily Operations', 'Monitoring Procedures', 'Incident Response', 'Change Management', 
+          'Capacity Planning', 'Disaster Recovery', 'Compliance Procedures'
+        ],
+        'training': [
+          'Training Modules', 'Hands-on Exercises', 'Assessment Quizzes', 'Certification Paths', 
+          'Trainer Guides', 'Participant Materials', 'Evaluation Forms'
+        ],
+        'faq': [
+          'Common Issues', 'Error Codes', 'Performance Problems', 'Integration Issues', 
+          'Upgrade Questions', 'Best Practices', 'Known Limitations'
+        ],
+        'release': [
+          'New Features', 'Bug Fixes', 'Security Updates', 'Deprecated Features', 
+          'Migration Notes', 'Compatibility Matrix', 'Rollback Procedures'
+        ],
+        'whats-new': [
+          'Feature Highlights', 'UI Changes', 'Performance Improvements', 'New Integrations', 
+          'Enhanced Security', 'User Experience Updates', 'Mobile Enhancements'
+        ],
+        'hotfix': [
+          'Critical Bug Fixes', 'Security Patches', 'Performance Fixes', 'Compatibility Updates', 
+          'Emergency Fixes', 'Rollback Instructions', 'Verification Steps'
+        ],
+        'api': [
+          'API Reference', 'Authentication Guide', 'Rate Limiting', 'Error Codes', 
+          'SDK Documentation', 'Code Examples', 'Webhook Documentation'
+        ],
+        'onboarding': [
+          'Welcome Guide', 'Account Setup', 'First Steps', 'Feature Tour', 
+          'Best Practices', 'Common Tasks', 'Support Resources'
+        ],
+        'knowledge': [
+          'Searchable Articles', 'Video Tutorials', 'Interactive Guides', 'Community Forums', 
+          'Expert Tips', 'Use Cases', 'Integration Examples'
+        ],
+        'newsletter': [
+          'Product Updates', 'Feature Announcements', 'Tips & Tricks', 'Customer Stories', 
+          'Industry Insights', 'Training Opportunities', 'Community Highlights'
+        ],
+        'blogs': [
+          'Technical Deep Dives', 'Best Practices', 'Industry Trends', 'Case Studies', 
+          'Tutorial Series', 'Product Insights', 'Developer Resources'
+        ]
+      };
+
+      const artifactTitles = {
+        'microcopy': 'Microcopy (UI texts)',
+        'user-manuals': 'User Manuals',
+        'installation': 'Installation and Configuration Manuals',
+        'admin': 'Administrator\'s Manuals',
+        'operations': 'Operations Manuals',
+        'training': 'Corporate Training Manuals',
+        'faq': 'FAQ and Troubleshooting Guides',
+        'release': 'Release Notes',
+        'whats-new': 'What\'s New',
+        'hotfix': 'Hotfix Docs',
+        'api': 'API Documentation',
+        'onboarding': 'Onboarding Guides',
+        'knowledge': 'Knowledge Bases',
+        'newsletter': 'Newsletter Content',
+        'blogs': 'Technical Blogs'
+      };
+
+      const subItems = subArtifacts[category];
+      const title = artifactTitles[category];
+      
+      if (subItems && title) {
+        document.getElementById('sub-artifacts-title').textContent = title;
+        
+        const contentDiv = document.getElementById('sub-artifacts-content');
+        contentDiv.innerHTML = '';
+        
+        subItems.forEach(item => {
+          const subItem = document.createElement('div');
+          subItem.className = 'sub-artifact-item';
+          subItem.textContent = item;
+          contentDiv.appendChild(subItem);
+        });
+        
+        document.getElementById('sub-artifacts-display').style.display = 'block';
+        document.getElementById('sub-artifacts-display').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function closeSubArtifacts() {
+      document.getElementById('sub-artifacts-display').style.display = 'none';
     }
   </script>
   </html>
