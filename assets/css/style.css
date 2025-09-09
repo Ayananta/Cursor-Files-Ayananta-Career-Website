@@ -217,9 +217,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 
 .list{padding-left:18px}
 
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.contact-links{list-style:none;padding:0;margin:0}
-.contact-links a{color:var(--emerald);text-decoration:none;display:flex;align-items:center;gap:8px;padding:8px 0}
+.contact-info{display:flex;justify-content:center;padding:40px 0}
+.contact-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:24px;align-items:center}
+.contact-links a{color:var(--emerald);text-decoration:none;display:flex;align-items:center;gap:12px;padding:16px 24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);transition:all 0.3s ease;font-size:1.1rem;font-weight:500}
+.contact-links a:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(16,185,129,0.2);border-color:var(--emerald)}
+.plain-link{color:var(--text);text-decoration:none}
+.plain-link:hover{color:var(--text);text-decoration:none}
 .contact-icon{font-size:1.2rem}
 .contact-form label{display:block;margin-top:8px}
 .contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
@@ -251,7 +254,6 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   .nav-links{display:none;position:absolute;right:16px;top:56px;background:var(--surface);padding:12px;border:1px solid var(--border);border-radius:8px;flex-direction:column;left:auto;transform:none}
   .nav-links a{color:var(--text)}
   .nav-links.open{display:flex}
-  .contact-grid{grid-template-columns:1fr}
   .section-box{padding:24px}
   .skills-grid{grid-template-columns:1fr;gap:16px}
   .skill-card{padding:20px}
