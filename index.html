@@ -97,7 +97,7 @@
       <section id="achievements" class="section" aria-label="Achievements">
         <div class="section-box">
           <h2>Achievements</h2>
-          <p>Achievements include reducing support tickets by 73.24% and accelerating onboarding by 48% for an SAP product during employment with HCL Tech, and lowering the time to configure SugarBox Networks' hyperlocal CDN with the Origin server of app partners by 31.44%. Proficient in DITA, AI tools, and Agile workflows. Led teams at HCL and SugarBox.</p>
+          <p>Achievements include reducing support tickets by 73.24% for an SAP product during employment with HCL Tech, and lowering the time to configure SugarBox Networks' hyperlocal CDN with the Origin server of app partners by 31.44%. Led teams at HCL, SugarBox, and Persistent Systems.</p>
         </div>
       </section>
 
@@ -105,30 +105,26 @@
         <div class="section-box">
           <h2>Artifacts</h2>
           <div class="artifacts-grid">
-            <div class="artifact-item" onclick="showSubArtifacts('microcopy')">Microcopy (UI texts)</div>
-            <div class="artifact-item" onclick="showSubArtifacts('user-manuals')">User Manuals</div>
-            <div class="artifact-item" onclick="showSubArtifacts('installation')">Installation and Configuration Manuals</div>
-            <div class="artifact-item" onclick="showSubArtifacts('admin')">Administrator's Manuals</div>
-            <div class="artifact-item" onclick="showSubArtifacts('operations')">Operations Manuals</div>
-            <div class="artifact-item" onclick="showSubArtifacts('training')">Corporate Training Manuals</div>
-            <div class="artifact-item" onclick="showSubArtifacts('faq')">FAQ and Troubleshooting Guides</div>
-            <div class="artifact-item" onclick="showSubArtifacts('release')">Release Notes</div>
-            <div class="artifact-item" onclick="showSubArtifacts('whats-new')">What's New</div>
-            <div class="artifact-item" onclick="showSubArtifacts('hotfix')">Hotfix Docs</div>
-            <div class="artifact-item" onclick="showSubArtifacts('api')">API Documentation</div>
-            <div class="artifact-item" onclick="showSubArtifacts('onboarding')">Onboarding Guides</div>
-            <div class="artifact-item" onclick="showSubArtifacts('knowledge')">Knowledge Bases</div>
-            <div class="artifact-item" onclick="showSubArtifacts('newsletter')">Newsletter Content</div>
-            <div class="artifact-item" onclick="showSubArtifacts('blogs')">Technical Blogs</div>
+            <div class="artifact-item" data-category="microcopy">Microcopy (UI texts)</div>
+            <div class="artifact-item" data-category="user-manuals">User Manuals</div>
+            <div class="artifact-item" data-category="installation">Installation and Configuration Manuals</div>
+            <div class="artifact-item" data-category="admin">Administrator's Manuals</div>
+            <div class="artifact-item" data-category="operations">Operations Manuals</div>
+            <div class="artifact-item" data-category="training">Corporate Training Manuals</div>
+            <div class="artifact-item" data-category="faq">FAQ and Troubleshooting Guides</div>
+            <div class="artifact-item" data-category="release">Release Notes</div>
+            <div class="artifact-item" data-category="whats-new">What's New</div>
+            <div class="artifact-item" data-category="hotfix">Hotfix Docs</div>
+            <div class="artifact-item" data-category="api">API Documentation</div>
+            <div class="artifact-item" data-category="onboarding">Onboarding Guides</div>
+            <div class="artifact-item" data-category="knowledge">Knowledge Bases</div>
+            <div class="artifact-item" data-category="newsletter">Newsletter Content</div>
+            <div class="artifact-item" data-category="blogs">Technical Blogs</div>
           </div>
           
-          <!-- Sub-artifacts display area -->
-          <div id="sub-artifacts-display" class="sub-artifacts-container" style="display: none;">
-            <div class="sub-artifacts-header">
-              <h3 id="sub-artifacts-title"></h3>
-              <button class="close-sub-artifacts" onclick="closeSubArtifacts()">&times;</button>
-            </div>
-            <div id="sub-artifacts-content" class="sub-artifacts-grid"></div>
+          <!-- Artifact tooltip -->
+          <div id="artifact-tooltip" class="artifact-tooltip" style="display: none;">
+            <div class="artifact-tooltip-content"></div>
           </div>
         </div>
       </section>
@@ -314,16 +310,21 @@
             <div class="expertise-section">
               <h3>Toolstack</h3>
               <div class="toolstack-grid">
-                <div class="tool-item"><a href="#" onclick="showTools('dita')">DITA XML EDITOR</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('authoring')">OTHER AUTHORING TOOL</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('diagramming')">DIAGRAMMING AND VIDEO</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('screencapture')">SCREEN CAPTURE</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('docslikecode')">DOCS-LIKE-CODE</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('api')">API DOCUMENTATION</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('ai')">AI TOOLS</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('project')">PROJECT MANAGEMENT</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('ticketing')">TICKETING</a></div>
-                <div class="tool-item"><a href="#" onclick="showTools('ccms')">CCMS</a></div>
+                <div class="tool-item" data-category="dita">DITA XML EDITOR</div>
+                <div class="tool-item" data-category="authoring">OTHER AUTHORING TOOL</div>
+                <div class="tool-item" data-category="diagramming">DIAGRAMMING AND VIDEO</div>
+                <div class="tool-item" data-category="screencapture">SCREEN CAPTURE</div>
+                <div class="tool-item" data-category="docslikecode">DOCS-LIKE-CODE</div>
+                <div class="tool-item" data-category="api">API DOCUMENTATION</div>
+                <div class="tool-item" data-category="ai">AI TOOLS</div>
+                <div class="tool-item" data-category="project">PROJECT MANAGEMENT</div>
+                <div class="tool-item" data-category="ticketing">TICKETING</div>
+                <div class="tool-item" data-category="ccms">CCMS</div>
+              </div>
+              
+              <!-- Tooltip display area -->
+              <div id="tool-tooltip" class="tool-tooltip" style="display: none;">
+                <div class="tool-tooltip-content"></div>
               </div>
             </div>
             <div class="expertise-section">
@@ -445,7 +446,7 @@
             <p>Programming skills to enhance technical documentation and interactive content creation.</p>
           </article>
           <article class="card">
-            <h3><a href="assets/downloads/UX-Writing-Certificate.pdf" target="_blank" rel="noopener">UX Writing</a></h3>
+            <h3><a href="UX Writing Certificate.jpg" target="_blank" rel="noopener">UX Writing</a></h3>
             <p class="meta">Professional Certification</p>
             <p>Specialized training in user experience writing and microcopy creation.</p>
           </article>
@@ -553,27 +554,8 @@
       });
     }
 
-    function showTools(category) {
-      const tools = {
-        'dita': ['Arbortext Editor', 'Oxygen XML Editor'],
-        'authoring': ['RoboHelp', 'MS Office', 'Google Docs', 'Confluence'],
-        'diagramming': ['Camtasia', 'Captivate', 'Audacity', 'Visio'],
-        'screencapture': ['SNAGit', 'Windows Snipping tool', 'Print Screen'],
-        'docslikecode': ['Markdown (GitHub-flavored)', 'Git'],
-        'api': ['Swagger UI', 'Postman'],
-        'ai': ['Cursor', 'Napkin', 'Piktochart', 'Notebook LM', 'Claude', 'Deepseek', 'ChatGPT', 'Otter'],
-        'project': ['JIRA'],
-        'ticketing': ['ServiceNow'],
-        'ccms': ['IxiaSoft']
-      };
-
-      const toolList = tools[category];
-      if (toolList) {
-        alert(toolList.join(', '));
-      }
-    }
-
-    function showSubArtifacts(category) {
+    // Define functions first
+    function showArtifactTooltip(category, event) {
       const subArtifacts = {
         'microcopy': [
           'Button Labels', 'Error Messages', 'Success Notifications', 'Form Field Hints', 
@@ -659,26 +641,164 @@
       const title = artifactTitles[category];
       
       if (subItems && title) {
-        document.getElementById('sub-artifacts-title').textContent = title;
+        const tooltip = document.getElementById('artifact-tooltip');
+        const content = document.querySelector('.artifact-tooltip-content');
         
-        const contentDiv = document.getElementById('sub-artifacts-content');
-        contentDiv.innerHTML = '';
+        content.innerHTML = `<strong>${title}</strong><ul>${subItems.map(item => `<li>${item}</li>`).join('')}</ul>`;
         
-        subItems.forEach(item => {
-          const subItem = document.createElement('div');
-          subItem.className = 'sub-artifact-item';
-          subItem.textContent = item;
-          contentDiv.appendChild(subItem);
-        });
+        // Position tooltip exactly beside mouse cursor
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        const tooltipWidth = 300; // max-width from CSS
+        const tooltipHeight = 200; // estimated height
         
-        document.getElementById('sub-artifacts-display').style.display = 'block';
-        document.getElementById('sub-artifacts-display').scrollIntoView({ behavior: 'smooth' });
+        let left = mouseX + 1; // exactly beside cursor
+        let top = mouseY + 1; // exactly beside cursor
+        
+        // Adjust if tooltip would go off screen
+        if (left + tooltipWidth > window.innerWidth - 10) {
+          left = mouseX - tooltipWidth - 1;
+        }
+        if (top + tooltipHeight > window.innerHeight - 10) {
+          top = mouseY - tooltipHeight - 1;
+        }
+        
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+        tooltip.style.display = 'block';
       }
     }
 
-    function closeSubArtifacts() {
-      document.getElementById('sub-artifacts-display').style.display = 'none';
+    function hideArtifactTooltip() {
+      const tooltip = document.getElementById('artifact-tooltip');
+      tooltip.style.display = 'none';
     }
+
+    function showToolTooltip(category, event) {
+      const tools = {
+        'dita': ['Arbortext Editor', 'Oxygen XML Editor'],
+        'authoring': ['RoboHelp', 'MS Office', 'Google Docs', 'Confluence'],
+        'diagramming': ['Camtasia', 'Captivate', 'Audacity', 'Visio'],
+        'screencapture': ['SNAGit', 'Windows Snipping tool', 'Print Screen'],
+        'docslikecode': ['Markdown (GitHub-flavored)', 'Git'],
+        'api': ['Swagger UI', 'Postman'],
+        'ai': ['Cursor', 'Napkin', 'Piktochart', 'Notebook LM', 'Claude', 'Deepseek', 'ChatGPT', 'Otter'],
+        'project': ['JIRA'],
+        'ticketing': ['ServiceNow'],
+        'ccms': ['IxiaSoft']
+      };
+
+      const toolList = tools[category];
+      if (toolList) {
+        const tooltip = document.getElementById('tool-tooltip');
+        const content = document.querySelector('.tool-tooltip-content');
+        
+        content.innerHTML = `<strong>${category.toUpperCase()}</strong><ul>${toolList.map(tool => `<li>${tool}</li>`).join('')}</ul>`;
+        
+        // Position tooltip exactly beside mouse cursor
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        const tooltipWidth = 300; // max-width from CSS
+        const tooltipHeight = 150; // estimated height
+        
+        let left = mouseX + 1; // exactly beside cursor
+        let top = mouseY + 1; // exactly beside cursor
+        
+        // Adjust if tooltip would go off screen
+        if (left + tooltipWidth > window.innerWidth - 10) {
+          left = mouseX - tooltipWidth - 1;
+        }
+        if (top + tooltipHeight > window.innerHeight - 10) {
+          top = mouseY - tooltipHeight - 1;
+        }
+        
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
+        tooltip.style.display = 'block';
+      }
+    }
+    
+    function hideToolTooltip() {
+      const tooltip = document.getElementById('tool-tooltip');
+      tooltip.style.display = 'none';
+    }
+
+    // Initialize hover functionality for artifacts and tools
+    document.addEventListener('DOMContentLoaded', function() {
+      // Name title phonetic tooltip functionality
+      const nameTitle = document.querySelector('.name-title');
+      const phonetics = document.querySelector('.phonetics');
+      
+      if (nameTitle && phonetics) {
+        nameTitle.addEventListener('mouseenter', function(e) {
+          updatePhoneticsPosition(e);
+        });
+        
+        nameTitle.addEventListener('mousemove', function(e) {
+          updatePhoneticsPosition(e);
+        });
+        
+        nameTitle.addEventListener('mouseleave', function() {
+          phonetics.style.opacity = '0';
+        });
+      }
+      
+      function updatePhoneticsPosition(event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        phonetics.style.left = (mouseX + 1) + 'px';
+        phonetics.style.top = (mouseY + 1) + 'px';
+        phonetics.style.opacity = '1';
+        phonetics.style.transform = 'translate(0, 0) scale(1)';
+      }
+      
+      // Artifacts hover functionality
+      const artifactItems = document.querySelectorAll('.artifact-item');
+      let currentArtifactCategory = null;
+      
+      artifactItems.forEach(item => {
+        item.addEventListener('mouseenter', function(e) {
+          const category = this.getAttribute('data-category');
+          currentArtifactCategory = category;
+          showArtifactTooltip(category, e);
+        });
+        
+        item.addEventListener('mousemove', function(e) {
+          if (currentArtifactCategory) {
+            showArtifactTooltip(currentArtifactCategory, e);
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          currentArtifactCategory = null;
+          hideArtifactTooltip();
+        });
+      });
+      
+      // Tools hover functionality
+      const toolItems = document.querySelectorAll('.tool-item');
+      let currentToolCategory = null;
+      
+      toolItems.forEach(item => {
+        item.addEventListener('mouseenter', function(e) {
+          const category = this.getAttribute('data-category');
+          currentToolCategory = category;
+          showToolTooltip(category, e);
+        });
+        
+        item.addEventListener('mousemove', function(e) {
+          if (currentToolCategory) {
+            showToolTooltip(currentToolCategory, e);
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          currentToolCategory = null;
+          hideToolTooltip();
+        });
+      });
+    });
   </script>
   </html>
 
