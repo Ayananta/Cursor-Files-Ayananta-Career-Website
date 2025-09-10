@@ -62,6 +62,12 @@
         <div class="section-box">
           <div class="hero-media">
             <img src="assets/images/ayananta-profile.jpg" alt="Portrait of Ayananta Chowdhury" width="640" height="960" loading="eager" />
+            <div class="personal-info">
+              <p><strong>Date of Birth:</strong> May 14, 1982</p>
+              <p><strong>Place:</strong> Kolkata, India</p>
+              <p><strong>Passport:</strong> T33382014</p>
+              <p><strong>US VISA:</strong> B1-B2 (valid till August 2029)</p>
+            </div>
           </div>
           <div class="hero-copy">
             <h2 class="name-title">AYANANTA CHOWDHURY</h2>
@@ -69,9 +75,10 @@
             <h1>Senior Manager Technical Writing</h1>
             <p class="tagline"><strong>16+ years transforming frustration with complex software applications into a smooth, seamless working experience.</strong></p>
             <p class="lede">Driven product success by embedding intuitive guidance directly into product UI—eliminating the need for users to break their workflow and leave the application to search external documentation. For complex workflows, complemented the built-in help with visually rich printed documentation, ensuring accurate and detailed coverage of information. Also, helped developers with smart API documentation.</p>
+            <a class="btn btn-primary download-resume-btn" href="My Resume.pdf" download>Download Resume</a>
             <div class="cta-row">
-              <a class="btn btn-primary" href="My Resume.pdf" download>Download Resume</a>
-              <a class="btn btn-secondary" href="#contact">Call Me</a>
+              <p class="consultation-text">A great product is only as good as a user's ability to leverage it. Guide your users through complex enterprise applications, ensuring they understand every feature and can execute every procedure with confidence. Ready to take the first step to enable your users to unlock your product's full potential and enjoy a delightful experience?</p>
+              <a class="btn btn-secondary" href="#contact">Call Me for Consultation | End-to-End Implementation</a>
             </div>
           </div>
         </div>
@@ -275,7 +282,7 @@
             <p>Explaining product functionality and feature utilities to users and guiding them through the steps via printed and online documentation, using various authoring tools.</p>
           </article>
           <article class="skill-card" data-category="ux">
-            <div class="skill-icon">🎨</div>
+            <div class="skill-icon">📄</div>
             <h3>Modern Technical Writing (UX Writing)</h3>
             <p>Embedding intuitive guidance, like tooltips, mouse-hover messages, guided tours, among other microcopy, directly into the UI to seamlessly assist users, offering a seamless user experience.</p>
           </article>
@@ -630,21 +637,36 @@
         
         content.innerHTML = `<strong>${title}</strong><ul>${subItems.map(item => `<li>${item}</li>`).join('')}</ul>`;
         
-        // Position tooltip exactly beside mouse cursor
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-        const tooltipWidth = 300; // max-width from CSS
+        // Position tooltip next to the hovered element
+        const elementRect = event.target.getBoundingClientRect();
+        const isMobile = window.innerWidth <= 768;
+        const tooltipWidth = isMobile ? Math.min(300, window.innerWidth - 20) : 300;
         const tooltipHeight = 200; // estimated height
         
-        let left = mouseX + 1; // exactly beside cursor
-        let top = mouseY + 1; // exactly beside cursor
+        let left, top;
         
-        // Adjust if tooltip would go off screen
-        if (left + tooltipWidth > window.innerWidth - 10) {
-          left = mouseX - tooltipWidth - 1;
+        if (isMobile) {
+          // On mobile, position tooltip below the element
+          left = Math.max(10, elementRect.left);
+          top = elementRect.bottom + 5;
+          
+          // Ensure tooltip doesn't go off screen horizontally
+          if (left + tooltipWidth > window.innerWidth - 10) {
+            left = window.innerWidth - tooltipWidth - 10;
+          }
+        } else {
+          // On desktop, position tooltip beside the element
+          left = elementRect.right + 1;
+          top = elementRect.top;
+          
+          // Adjust if tooltip would go off screen
+          if (left + tooltipWidth > window.innerWidth - 10) {
+            left = elementRect.left - tooltipWidth - 1;
+          }
         }
+        
         if (top + tooltipHeight > window.innerHeight - 10) {
-          top = mouseY - tooltipHeight - 1;
+          top = elementRect.bottom - tooltipHeight;
         }
         
         tooltip.style.left = left + 'px';
@@ -679,21 +701,36 @@
         
         content.innerHTML = `<strong>${category.toUpperCase()}</strong><ul>${toolList.map(tool => `<li>${tool}</li>`).join('')}</ul>`;
         
-        // Position tooltip exactly beside mouse cursor
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-        const tooltipWidth = 300; // max-width from CSS
+        // Position tooltip next to the hovered element
+        const elementRect = event.target.getBoundingClientRect();
+        const isMobile = window.innerWidth <= 768;
+        const tooltipWidth = isMobile ? Math.min(300, window.innerWidth - 20) : 300;
         const tooltipHeight = 150; // estimated height
         
-        let left = mouseX + 1; // exactly beside cursor
-        let top = mouseY + 1; // exactly beside cursor
+        let left, top;
         
-        // Adjust if tooltip would go off screen
-        if (left + tooltipWidth > window.innerWidth - 10) {
-          left = mouseX - tooltipWidth - 1;
+        if (isMobile) {
+          // On mobile, position tooltip below the element
+          left = Math.max(10, elementRect.left);
+          top = elementRect.bottom + 5;
+          
+          // Ensure tooltip doesn't go off screen horizontally
+          if (left + tooltipWidth > window.innerWidth - 10) {
+            left = window.innerWidth - tooltipWidth - 10;
+          }
+        } else {
+          // On desktop, position tooltip beside the element
+          left = elementRect.right + 1;
+          top = elementRect.top;
+          
+          // Adjust if tooltip would go off screen
+          if (left + tooltipWidth > window.innerWidth - 10) {
+            left = elementRect.left - tooltipWidth - 1;
+          }
         }
+        
         if (top + tooltipHeight > window.innerHeight - 10) {
-          top = mouseY - tooltipHeight - 1;
+          top = elementRect.bottom - tooltipHeight;
         }
         
         tooltip.style.left = left + 'px';
@@ -718,21 +755,27 @@
           updatePhoneticsPosition(e);
         });
         
-        nameTitle.addEventListener('mousemove', function(e) {
-          updatePhoneticsPosition(e);
-        });
-        
         nameTitle.addEventListener('mouseleave', function() {
           phonetics.style.opacity = '0';
         });
       }
       
       function updatePhoneticsPosition(event) {
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
+        const nameTitleRect = nameTitle.getBoundingClientRect();
+        const isMobile = window.innerWidth <= 768;
         
-        phonetics.style.left = (mouseX + 1) + 'px';
-        phonetics.style.top = (mouseY + 1) + 'px';
+        if (isMobile) {
+          // On mobile, position tooltip below the name
+          phonetics.style.left = (nameTitleRect.left) + 'px';
+          phonetics.style.top = (nameTitleRect.bottom + 5) + 'px';
+          phonetics.style.maxWidth = '90vw';
+        } else {
+          // On desktop, position tooltip to the right
+          phonetics.style.left = (nameTitleRect.right + 1) + 'px';
+          phonetics.style.top = (nameTitleRect.top) + 'px';
+          phonetics.style.maxWidth = '300px';
+        }
+        
         phonetics.style.opacity = '1';
         phonetics.style.transform = 'translate(0, 0) scale(1)';
       }
@@ -746,12 +789,6 @@
           const category = this.getAttribute('data-category');
           currentArtifactCategory = category;
           showArtifactTooltip(category, e);
-        });
-        
-        item.addEventListener('mousemove', function(e) {
-          if (currentArtifactCategory) {
-            showArtifactTooltip(currentArtifactCategory, e);
-          }
         });
         
         item.addEventListener('mouseleave', function() {
@@ -769,12 +806,6 @@
           const category = this.getAttribute('data-category');
           currentToolCategory = category;
           showToolTooltip(category, e);
-        });
-        
-        item.addEventListener('mousemove', function(e) {
-          if (currentToolCategory) {
-            showToolTooltip(currentToolCategory, e);
-          }
         });
         
         item.addEventListener('mouseleave', function() {
