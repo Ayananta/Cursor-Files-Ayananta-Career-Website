@@ -4,13 +4,48 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Mobile nav
+  // Mobile nav with improved functionality
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   if (menuToggle && navLinks){
     menuToggle.addEventListener('click', function(){
       const isOpen = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(isOpen));
+      
+      // Close menu when clicking outside
+      if (isOpen) {
+        document.addEventListener('click', closeMenuOnOutsideClick);
+      } else {
+        document.removeEventListener('click', closeMenuOnOutsideClick);
+      }
+    });
+    
+    // Close menu when clicking on nav links
+    const navLinkItems = navLinks.querySelectorAll('a');
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', closeMenuOnOutsideClick);
+      });
+    });
+    
+    // Close menu on outside click
+    function closeMenuOnOutsideClick(event) {
+      if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', closeMenuOnOutsideClick);
+      }
+    }
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', closeMenuOnOutsideClick);
+      }
     });
   }
 
@@ -85,6 +120,33 @@
     s.src = 'https://plausible.io/js/plausible.js';
     document.head.appendChild(s);
   }
+  
+  // Mobile-specific improvements
+  function handleMobileOptimizations() {
+    // Close mobile menu on orientation change
+    if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+    
+    // Adjust tooltip positioning on resize
+    window.addEventListener('resize', function() {
+      // Close any open tooltips on resize
+      const tooltips = document.querySelectorAll('.tool-tooltip, .artifact-tooltip');
+      tooltips.forEach(tooltip => {
+        tooltip.style.display = 'none';
+      });
+    });
+  }
+  
+  // Run on load and orientation change
+  handleMobileOptimizations();
+  window.addEventListener('orientationchange', function() {
+    setTimeout(handleMobileOptimizations, 100);
+  });
+  window.addEventListener('resize', handleMobileOptimizations);
 })();
 
 
