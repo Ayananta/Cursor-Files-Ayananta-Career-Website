@@ -45,6 +45,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#certs">Certifications</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#passion-interests">Passion &amp; Interests</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#downloads">Downloads</a></li>
         </ul>
@@ -63,7 +64,6 @@
           <div class="hero-media">
             <img src="assets/images/ayananta-profile.jpg" alt="Portrait of Ayananta Chowdhury" width="640" height="960" loading="eager" />
             <div class="personal-info">
-              <p><strong>Date of Birth:</strong> May 14, 1982</p>
               <p><strong>Place:</strong> Kolkata, India</p>
               <p><strong>Passport:</strong> T33382014</p>
               <p><strong>US VISA:</strong> B1-B2 (valid till August 2029)</p>
@@ -73,7 +73,7 @@
             <h2 class="name-title">AYANANTA CHOWDHURY</h2>
             <p class="phonetics">Au-yoh-nahn-toh Chou-dhoo-ree</p>
             <h1>Senior Manager Technical Writing</h1>
-            <p class="tagline"><strong>16+ years transforming frustration with complex software applications into a smooth, seamless working experience.</strong></p>
+            <p class="tagline"><strong>16+ years transforming frustration with complex software applications into smooth and delightful working experience.</strong></p>
             <p class="lede">Driven product success by embedding intuitive guidance directly into product UI—eliminating the need for users to break their workflow and leave the application to search external documentation. For complex workflows, complemented the built-in help with visually rich printed documentation, ensuring accurate and detailed coverage of information. Also, helped developers with smart API documentation.</p>
             <a class="btn btn-primary download-resume-btn" href="My Resume.pdf" download>Download Resume</a>
             <div class="cta-row">
@@ -478,7 +478,7 @@
             <a href="Post Graduation Marksheet (1).pdf" target="_blank" rel="noopener">Marksheet</a>
           </li>
           <li>
-            <a href="assets/downloads/BCom-Hons-Degree-Certificate-Calcutta-University-2005.pdf" target="_blank" rel="noopener">B. Com (Hons) — Calcutta University (2002-2005)</a>
+            <a href="Graduaation Pass Certificate (1).jpg" target="_blank" rel="noopener">B. Com (Hons) — Calcutta University (2002-2005)</a>
           </li>
           <li>
             <a href="Class 12 Pass Certificate.jpg" target="_blank" rel="noopener">ISC & ICSE — Assembly of God Church School, Kolkata (2002)</a> | 
@@ -500,6 +500,54 @@
             <li><a href="https://ayanantachowdhury.blog/" target="_blank" rel="noopener"><span class="contact-icon">📝</span> Blog</a></li>
           </ul>
         </div>
+        </div>
+      </section>
+
+      <section id="passion-interests" class="section" aria-label="Passion and Interests">
+        <div class="section-box">
+          <h2>Passion and Interests</h2>
+          <div class="passion-interests-container">
+            <div class="passion-section">
+              <h3>Passion</h3>
+              <div class="passion-item">
+                <div class="passion-icon">🏓</div>
+                <div class="passion-content">
+                  <h4>Table Tennis</h4>
+                  <p>I'm a trained Table Tennis player who practices regularly and plays competitively. The sport has taught me precision, quick thinking, and strategic planning - skills that translate well into my professional work.</p>
+                </div>
+              </div>
+            </div>
+            <div class="interests-section">
+              <h3>Interests</h3>
+              <div class="interests-grid">
+                <div class="interest-item">
+                  <div class="interest-icon">⚛️</div>
+                  <h4>Theoretical Physics</h4>
+                  <p>Exploring the fundamental laws that govern our universe</p>
+                </div>
+                <div class="interest-item">
+                  <div class="interest-icon">🔬</div>
+                  <h4>Quantum Mechanics</h4>
+                  <p>Understanding the mysterious world of quantum phenomena</p>
+                </div>
+                <div class="interest-item">
+                  <div class="interest-icon">🌍</div>
+                  <h4>Geo Politics</h4>
+                  <p>Analyzing global power dynamics and international relations</p>
+                </div>
+                <div class="interest-item">
+                  <div class="interest-icon">📚</div>
+                  <h4>World History</h4>
+                  <p>Learning from the past to understand the present</p>
+                </div>
+                <div class="interest-item">
+                  <div class="interest-icon">🤔</div>
+                  <h4>Philosophy</h4>
+                  <p>Contemplating life's big questions and ethical frameworks</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -534,6 +582,11 @@
     <footer class="site-footer" role="contentinfo">
       <p>© <span id="year"></span> Ayananta. All rights reserved.</p>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+      <span aria-hidden="true">↑</span>
+    </button>
 
     <script>window.__analyticsOptIn=false;</script>
     <script src="assets/js/main.js" defer></script>
@@ -647,12 +700,12 @@
         
         if (isMobile) {
           // On mobile, position tooltip below the element
-          left = Math.max(10, elementRect.left);
-          top = elementRect.bottom + 5;
+          left = Math.max(1, elementRect.left);
+          top = elementRect.bottom + 1;
           
           // Ensure tooltip doesn't go off screen horizontally
-          if (left + tooltipWidth > window.innerWidth - 10) {
-            left = window.innerWidth - tooltipWidth - 10;
+          if (left + tooltipWidth > window.innerWidth - 1) {
+            left = window.innerWidth - tooltipWidth - 1;
           }
         } else {
           // On desktop, position tooltip beside the element
@@ -660,12 +713,12 @@
           top = elementRect.top;
           
           // Adjust if tooltip would go off screen
-          if (left + tooltipWidth > window.innerWidth - 10) {
+          if (left + tooltipWidth > window.innerWidth - 1) {
             left = elementRect.left - tooltipWidth - 1;
           }
         }
         
-        if (top + tooltipHeight > window.innerHeight - 10) {
+        if (top + tooltipHeight > window.innerHeight - 1) {
           top = elementRect.bottom - tooltipHeight;
         }
         
