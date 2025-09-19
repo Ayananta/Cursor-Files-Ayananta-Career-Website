@@ -22,14 +22,24 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:8px;top:8px;width:auto;height:auto;background:var(--emerald);color:#fff;padding:8px 12px;border-radius:6px}
 
-.site-header{position:sticky;top:0;background:radial-gradient(circle, var(--emerald) 0%, var(--emerald-600) 100%);box-shadow:var(--shadow);z-index:100}
-.nav{width:100%;margin:0;display:flex;align-items:center;gap:16px;padding:12px 16px;justify-content:space-between}
-.logo{font-weight:700;color:#fff;text-decoration:none}
+.site-header{position:sticky;top:0;background:linear-gradient(135deg, var(--emerald) 0%, #059669 25%, #10b981 50%, #047857 75%, var(--emerald-600) 100%);box-shadow:0 4px 20px rgba(16,185,129,0.3), 0 0 30px rgba(16,185,129,0.2);z-index:100;position:relative;overflow:hidden}
+.site-header::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);animation:headerShimmer 3s ease-in-out infinite}
+.site-header::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(255,255,255,0.15) 0%, transparent 50%);animation:headerGlow 4s ease-in-out infinite alternate}
+.nav{width:100%;margin:0;display:flex;align-items:center;gap:16px;padding:12px 16px;justify-content:space-between;position:relative;z-index:10}
+.logo{font-weight:700;color:#fff;text-decoration:none;text-shadow:0 2px 4px rgba(0,0,0,0.3);transition:all 0.3s ease;position:relative}
+.logo:hover{transform:scale(1.05);text-shadow:0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3)}
 .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:12px;position:absolute;left:50%;transform:translateX(-50%);align-items:center;justify-content:center}
 .nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
-.nav-links a{text-decoration:none;color:#fff;white-space:nowrap;padding:8px 12px;border-radius:6px;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center}
-.nav-links a:hover{color:#e5fff5;background:rgba(255,255,255,0.1)}
+.nav-links a{text-decoration:none;color:#fff;white-space:nowrap;padding:8px 12px;border-radius:6px;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center;position:relative;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+.nav-links a:hover{color:#e5fff5;background:rgba(255,255,255,0.15);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2);text-shadow:0 2px 4px rgba(0,0,0,0.4), 0 0 10px rgba(255,255,255,0.2)}
 .nav-toggle{display:none}
+
+/* Hide hamburger menu on desktop */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none !important;
+  }
+}
 
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);text-decoration:none;box-shadow:var(--shadow);transition:all 0.3s ease}
 .btn:hover{border-color:var(--emerald);color:var(--emerald);transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,0.15)}
@@ -638,6 +648,17 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   50%{box-shadow:0 0 0 6px var(--emerald), 0 0 20px rgba(16,185,129,0.5)}
   100%{box-shadow:0 0 0 3px var(--emerald), 0 0 10px rgba(16,185,129,0.3)}
 }
+
+@keyframes headerShimmer{
+  0%{left:-100%}
+  50%{left:100%}
+  100%{left:100%}
+}
+
+@keyframes headerGlow{
+  0%{opacity:0.6}
+  100%{opacity:1}
+}
 @keyframes jiggle{
   0%, 100%{transform:translateY(-2px) rotate(0deg)}
   25%{transform:translateY(-2px) rotate(1deg)}
@@ -655,7 +676,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .nav-toggle {
-    display: inline-flex;
+    display: inline-flex !important;
     order: 3;
     margin-left: auto;
   }
