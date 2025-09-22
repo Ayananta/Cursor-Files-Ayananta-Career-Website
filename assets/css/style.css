@@ -55,6 +55,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .section-box:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .preface-content{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:start}
 .preface-text h2{margin-top:0}
+.preface-text p{margin-bottom:16px}
+.preface-text p:last-child{margin-bottom:0}
 .preface-image img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
 .hero .section-box{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start;padding:80px 32px}
 .hero-media img{width:100%;height:auto;min-height:380px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow)}
