@@ -746,20 +746,16 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .intro-video {
-    max-width: 280px;
     width: 100%;
     height: auto;
     min-height: auto;
-    margin: 0 auto;
   }
   
   .intro-video video {
-    max-width: 280px;
     width: 100%;
     height: auto;
     min-height: auto;
     display: block;
-    margin: 0 auto;
   }
   
   .personal-info {
@@ -1074,14 +1070,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .intro-video {
-    max-width: 240px;
-    margin: 0 auto;
+    width: 100%;
   }
   
   .intro-video video {
-    max-width: 240px;
+    width: 100%;
     display: block;
-    margin: 0 auto;
   }
   
   .personal-info {
@@ -1153,14 +1147,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     }
     
     .intro-video {
-      max-width: 200px;
-      margin: 0 auto;
+      width: 100%;
     }
     
     .intro-video video {
-      max-width: 200px;
+      width: 100%;
       display: block;
-      margin: 0 auto;
     }
     
     .personal-info p {
