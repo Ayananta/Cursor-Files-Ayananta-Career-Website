@@ -30,7 +30,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .logo:hover{transform:scale(1.05);text-shadow:0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3)}
 .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:12px;position:absolute;left:50%;transform:translateX(-50%);align-items:center;justify-content:center}
 .nav-right{display:flex;align-items:center;gap:8px;margin-left:auto}
-.nav-links a{text-decoration:none;color:#fff;white-space:nowrap;padding:8px 12px;border-radius:6px;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center;position:relative;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+.nav-links a{text-decoration:none;color:#fff;white-space:nowrap;padding:8px 12px;border-radius:6px;transition:all 0.3s ease;display:flex;align-items:center;justify-content:center;position:relative;text-shadow:0 1px 2px rgba(0,0,0,0.3);font-size:0.95rem}
 .nav-links a:hover{color:#e5fff5;background:rgba(255,255,255,0.15);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2);text-shadow:0 2px 4px rgba(0,0,0,0.4), 0 0 10px rgba(255,255,255,0.2)}
 .nav-toggle{display:none}
 
@@ -679,6 +679,11 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     flex-wrap: wrap;
   }
   
+  /* Ensure mobile dropdown isn't clipped by header */
+  .site-header {
+    overflow: visible;
+  }
+  
   .nav-toggle {
     display: inline-flex !important;
     order: 3;
@@ -815,8 +820,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     margin: 32px auto 24px auto;
     padding: 12px 20px;
     font-size: 0.95rem;
-    max-width: 100%;
-    width: auto;
+    width: 90%;
+    max-width: 280px;
     animation: resumeButtonPulse 2.5s ease-in-out infinite;
   }
   
@@ -826,12 +831,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   
   .cta-row .btn {
     min-width: auto;
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 320px;
     white-space: normal;
     padding: 14px 16px;
     font-size: 0.9rem;
-    margin: 16px 0 0 0;
+    margin: 16px auto 0 auto;
   }
   
   .consultation-text {
