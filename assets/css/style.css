@@ -62,6 +62,10 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .intro-video{width:100%;height:auto;min-height:380px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease}
 .intro-video:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15)}
 .intro-video video{width:100%;height:auto;min-height:380px;object-fit:cover;display:block;border-radius:12px}
+.content-ecosystem{margin-top:24px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
+.content-ecosystem img{width:100%;height:auto;display:block}
+.section#roles .content-ecosystem{max-width:840px;margin:16px auto;padding:8px}
+.section#roles .content-ecosystem img{width:100%;height:auto}
 .personal-info{text-align:center;margin-top:32px;padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
 .personal-info p{margin:8px 0;color:var(--text);font-size:0.9rem;line-height:1.4}
 .personal-info strong{color:var(--emerald);font-weight:600}

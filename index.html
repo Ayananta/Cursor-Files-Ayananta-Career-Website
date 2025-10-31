@@ -48,16 +48,17 @@
         <ul id="navLinks" class="nav-links">
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#artifacts">Artifacts</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#passion-interests">Passion &amp; Interests</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#roles">Roles</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#toolstack">Toolstack</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certs">Certifications</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#passion-interests">Passion &amp; Interests</a></li>
-          <li><a href="#downloads">Downloads</a></li>
         </ul>
         <div class="nav-right">
           <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme" title="Toggle dark or light mode">
@@ -107,6 +108,7 @@
               <h2>Preface</h2>
               <p>If any natural phenomenon of a high degree of complexity is to be broken up into its most fundamental component, what would emerge is something astonishingly simple. This is a truth that is built into our universe. A simple concept, mechanism, or design has the potential to generate something stupendously complex.</p>
               <p>Being someone who explains technical concepts to customers and other users and one who's mindful of the maxim that simplicity is the ultimate sophistication, I believe that if what I write cannot be understood by the masses, then I have not understood the concept clearly enough. So, I aim to go right to the bottom of any technology and strive to understand the underlying fundamental concept. Once the fundamentals are clear, explaining any technology or mechanism in a way that everyone understands, no longer remains that big of a challenge.</p>
+              <p>A great product is only as good as a user's ability to leverage it. My assistance unlocks full product potential, maximizes ROI, and eliminates frustration for users—delighting them at every step of their journey.</p>
             </div>
             <div class="preface-image">
               <img src="assets/images/Ayananta.jpg" alt="Ayananta Chowdhury" width="300" height="400" loading="lazy" />
@@ -124,6 +126,15 @@
             <li>Reduced SAP product support tickets by 53.24% YoY (2024).</li>
             <li>Cut SugarBox CDN configuration time by 31.44% (measured via Google Analytics and Hotjar).</li>
           </ul>
+        </div>
+      </section>
+
+      <section id="roles" class="section" aria-label="Roles Played">
+        <div class="section-box">
+          <h2>Roles Played</h2>
+          <div class="content-ecosystem">
+            <img src="Building%20a%20Content%20Ecosystem.svg" alt="Building a Content Ecosystem diagram showing the breadth of Software Help content work" loading="lazy" />
+          </div>
         </div>
       </section>
 
@@ -299,13 +310,23 @@
         <div class="section-box">
           <h2>Skills</h2>
         <div class="skills-grid">
+          <article class="skill-card" data-category="strategy">
+            <div class="skill-icon">📋</div>
+            <h3>Content Strategy</h3>
+            <p>Developing comprehensive content strategies that align with business objectives, user needs, and technical requirements to optimize content effectiveness and user experience.</p>
+          </article>
+          <article class="skill-card" data-category="architecture">
+            <div class="skill-icon">🏗️</div>
+            <h3>Information Architecture</h3>
+            <p>Designing and structuring information systems, content hierarchies, and navigation patterns to ensure intuitive user experiences and optimal content discoverability.</p>
+          </article>
           <article class="skill-card" data-category="writing">
-            <div class="skill-icon">📝</div>
+            <div class="skill-icon">📄</div>
             <h3>Traditional Technical Writing</h3>
             <p>Explaining product functionality and feature utilities to users and guiding them through the steps via printed and online documentation, using various authoring tools.</p>
           </article>
           <article class="skill-card" data-category="ux">
-            <div class="skill-icon">📄</div>
+            <div class="skill-icon">📝</div>
             <h3>Modern Technical Writing (UX Writing)</h3>
             <p>Embedding intuitive guidance, like tooltips, mouse-hover messages, guided tours, among other microcopy, directly into the UI to seamlessly assist users, offering a seamless user experience.</p>
           </article>
@@ -328,16 +349,6 @@
             <div class="skill-icon">🔌</div>
             <h3>API Documentation</h3>
             <p>Writing conceptual as well as reference sections, using Swagger UI.</p>
-          </article>
-          <article class="skill-card" data-category="strategy">
-            <div class="skill-icon">📋</div>
-            <h3>Content Strategy</h3>
-            <p>Developing comprehensive content strategies that align with business objectives, user needs, and technical requirements to optimize content effectiveness and user experience.</p>
-          </article>
-          <article class="skill-card" data-category="architecture">
-            <div class="skill-icon">🏗️</div>
-            <h3>Information Architecture</h3>
-            <p>Designing and structuring information systems, content hierarchies, and navigation patterns to ensure intuitive user experiences and optimal content discoverability.</p>
           </article>
         </div>
         </div>
@@ -723,6 +734,9 @@
       
       if (subItems && title) {
         const tooltip = document.getElementById('artifact-tooltip');
+        if (tooltip && tooltip.parentElement !== document.body) {
+          document.body.appendChild(tooltip);
+        }
         const content = document.querySelector('.artifact-tooltip-content');
         
         content.innerHTML = `<strong>${title}</strong><ul>${subItems.map(item => `<li>${item}</li>`).join('')}</ul>`;
@@ -759,6 +773,7 @@
           top = elementRect.bottom - tooltipHeight;
         }
         
+        tooltip.style.position = 'fixed';
         tooltip.style.left = left + 'px';
         tooltip.style.top = top + 'px';
         tooltip.style.display = 'block';
