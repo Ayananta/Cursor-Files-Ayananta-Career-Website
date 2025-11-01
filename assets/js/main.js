@@ -72,8 +72,13 @@
   if (storedTheme){
     root.setAttribute('data-theme', storedTheme);
   } else {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    const isMobileViewport = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    if (isMobileViewport){
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }
   }
   if (themeToggle){
     themeToggle.addEventListener('click', function(){

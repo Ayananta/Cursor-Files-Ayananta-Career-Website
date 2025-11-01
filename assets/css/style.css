@@ -688,6 +688,13 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 
 /* Base mobile styles (up to 768px) */
 @media (max-width: 768px) {
+  /* Reduce animations and transforms on mobile to prevent scroll jank */
+  .site-header::before, .site-header::after { display:none; animation:none; }
+  .timeline-point { animation: none !important; }
+  .artifact-item, .artifact-item:hover, .sub-artifact-item { animation: none !important; transform: none !important; box-shadow: var(--shadow); }
+  .download-resume-btn { animation: none !important; }
+  .card:hover, .skill-card:hover, .tool-item:hover, .industry-item:hover { transform: none !important; box-shadow: var(--shadow); }
+  html, body { overscroll-behavior-y: none; }
   /* Navigation improvements */
   .nav {
     padding: 8px 12px;
