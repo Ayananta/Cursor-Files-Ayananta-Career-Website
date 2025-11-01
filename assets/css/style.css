@@ -64,8 +64,19 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .intro-video video{width:100%;height:auto;min-height:380px;object-fit:cover;display:block;border-radius:12px}
 .content-ecosystem{margin-top:24px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
 .content-ecosystem img{width:100%;height:auto;display:block}
-.section#roles .content-ecosystem{max-width:840px;margin:16px auto;padding:8px}
+.section#roles .content-ecosystem{width:100%;margin:16px 0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
 .section#roles .content-ecosystem img{width:100%;height:auto}
+@media (min-width: 769px){
+  .section#roles .content-ecosystem{grid-template-columns:1fr 1fr}
+}
+
+/* Roles section diagram headings */
+.section#roles .diagram-heading{color:#9ca3af;font-size:1rem;line-height:1.4;margin:4px 0 8px 0;font-weight:600}
+/* Add extra space under the second diagram heading */
+.section#roles .content-ecosystem .diagram:nth-of-type(2) .diagram-heading{margin-bottom:20px}
+@media (max-width: 768px){
+  .section#roles .diagram-heading{font-size:0.95rem}
+}
 .personal-info{text-align:center;margin-top:32px;padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
 .personal-info p{margin:8px 0;color:var(--text);font-size:0.9rem;line-height:1.4}
 .personal-info strong{color:var(--emerald);font-weight:600}
