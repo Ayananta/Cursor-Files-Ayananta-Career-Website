@@ -179,6 +179,277 @@
     // Initial check
     toggleScrollToTop();
   }
+
+  // Information Architecture Modal functionality
+  const infoArchCard = document.getElementById('info-arch-card');
+  const infoArchModal = document.getElementById('infoArchModal');
+  const modalOverlay = infoArchModal?.querySelector('.modal-overlay');
+  const modalClose = infoArchModal?.querySelector('.modal-close');
+
+  function openModal() {
+    if (infoArchModal) {
+      infoArchModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      // Focus the close button for accessibility
+      if (modalClose) {
+        setTimeout(() => modalClose.focus(), 100);
+      }
+    }
+  }
+
+  function closeModal() {
+    if (infoArchModal) {
+      infoArchModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scrolling
+      // Return focus to the card
+      if (infoArchCard) {
+        infoArchCard.focus();
+      }
+    }
+  }
+
+  // Open modal when clicking the Information Architecture card
+  if (infoArchCard) {
+    infoArchCard.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+
+    // Support keyboard navigation (Enter and Space)
+    infoArchCard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+
+  // Close modal when clicking the close button
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  // Close modal when clicking the overlay or modal background
+  if (infoArchModal) {
+    infoArchModal.addEventListener('click', function(e) {
+      // Only close if clicking directly on the modal container (not on modal-content)
+      if (e.target === infoArchModal || e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+  }
+
+  // Prevent modal content clicks from closing the modal
+  if (infoArchModal) {
+    const modalContent = infoArchModal.querySelector('.modal-content');
+    if (modalContent) {
+      modalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  // Content Strategy Modal functionality
+  const contentStrategyCard = document.getElementById('content-strategy-card');
+  const contentStrategyModal = document.getElementById('contentStrategyModal');
+  const contentStrategyModalOverlay = contentStrategyModal?.querySelector('.modal-overlay');
+  const contentStrategyModalClose = contentStrategyModal?.querySelector('.modal-close');
+
+  function openContentStrategyModal() {
+    if (contentStrategyModal) {
+      contentStrategyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      // Focus the close button for accessibility
+      if (contentStrategyModalClose) {
+        setTimeout(() => contentStrategyModalClose.focus(), 100);
+      }
+    }
+  }
+
+  function closeContentStrategyModal() {
+    if (contentStrategyModal) {
+      contentStrategyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // Restore scrolling
+      // Return focus to the card
+      if (contentStrategyCard) {
+        contentStrategyCard.focus();
+      }
+    }
+  }
+
+  // Open modal when clicking the Content Strategy card
+  if (contentStrategyCard) {
+    contentStrategyCard.addEventListener('click', function(e) {
+      e.preventDefault();
+      openContentStrategyModal();
+    });
+
+    // Support keyboard navigation (Enter and Space)
+    contentStrategyCard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openContentStrategyModal();
+      }
+    });
+  }
+
+  // Close modal when clicking the close button
+  if (contentStrategyModalClose) {
+    contentStrategyModalClose.addEventListener('click', closeContentStrategyModal);
+  }
+
+  // Close modal when clicking the overlay or modal background
+  if (contentStrategyModal) {
+    contentStrategyModal.addEventListener('click', function(e) {
+      // Only close if clicking directly on the modal container (not on modal-content)
+      if (e.target === contentStrategyModal || e.target === contentStrategyModalOverlay) {
+        closeContentStrategyModal();
+      }
+    });
+  }
+
+  // Prevent modal content clicks from closing the modal
+  if (contentStrategyModal) {
+    const contentStrategyModalContent = contentStrategyModal.querySelector('.modal-content');
+    if (contentStrategyModalContent) {
+      contentStrategyModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  // AI-Powered Technical Writing Modal functionality
+  const aiPoweredCard = document.getElementById('ai-powered-card');
+  const aiPoweredModal = document.getElementById('aiPoweredModal');
+  const aiPoweredModalOverlay = aiPoweredModal?.querySelector('.modal-overlay');
+  const aiPoweredModalClose = aiPoweredModal?.querySelector('.modal-close');
+
+  function openAiPoweredModal() {
+    if (aiPoweredModal) {
+      aiPoweredModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (aiPoweredModalClose) {
+        setTimeout(() => aiPoweredModalClose.focus(), 100);
+      }
+    }
+  }
+
+  function closeAiPoweredModal() {
+    if (aiPoweredModal) {
+      aiPoweredModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (aiPoweredCard) {
+        aiPoweredCard.focus();
+      }
+    }
+  }
+
+  if (aiPoweredCard) {
+    aiPoweredCard.addEventListener('click', function(e) {
+      e.preventDefault();
+      openAiPoweredModal();
+    });
+
+    aiPoweredCard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openAiPoweredModal();
+      }
+    });
+  }
+
+  if (aiPoweredModalClose) {
+    aiPoweredModalClose.addEventListener('click', closeAiPoweredModal);
+  }
+
+  if (aiPoweredModal) {
+    aiPoweredModal.addEventListener('click', function(e) {
+      if (e.target === aiPoweredModal || e.target === aiPoweredModalOverlay) {
+        closeAiPoweredModal();
+      }
+    });
+
+    const aiPoweredModalContent = aiPoweredModal.querySelector('.modal-content');
+    if (aiPoweredModalContent) {
+      aiPoweredModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  // Modern Technical Writing (UX Writing) Modal functionality
+  const modernTechWritingCard = document.getElementById('modern-tech-writing-card');
+  const modernTechWritingModal = document.getElementById('modernTechWritingModal');
+  const modernTechWritingModalOverlay = modernTechWritingModal?.querySelector('.modal-overlay');
+  const modernTechWritingModalClose = modernTechWritingModal?.querySelector('.modal-close');
+
+  function openModernTechWritingModal() {
+    if (modernTechWritingModal) {
+      modernTechWritingModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (modernTechWritingModalClose) {
+        setTimeout(() => modernTechWritingModalClose.focus(), 100);
+      }
+    }
+  }
+
+  function closeModernTechWritingModal() {
+    if (modernTechWritingModal) {
+      modernTechWritingModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (modernTechWritingCard) {
+        modernTechWritingCard.focus();
+      }
+    }
+  }
+
+  if (modernTechWritingCard) {
+    modernTechWritingCard.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModernTechWritingModal();
+    });
+
+    modernTechWritingCard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModernTechWritingModal();
+      }
+    });
+  }
+
+  if (modernTechWritingModalClose) {
+    modernTechWritingModalClose.addEventListener('click', closeModernTechWritingModal);
+  }
+
+  if (modernTechWritingModal) {
+    modernTechWritingModal.addEventListener('click', function(e) {
+      if (e.target === modernTechWritingModal || e.target === modernTechWritingModalOverlay) {
+        closeModernTechWritingModal();
+      }
+    });
+
+    const modernTechWritingModalContent = modernTechWritingModal.querySelector('.modal-content');
+    if (modernTechWritingModalContent) {
+      modernTechWritingModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
+  // Close modal when pressing Escape key (handle all modals)
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (modernTechWritingModal && modernTechWritingModal.getAttribute('aria-hidden') === 'false') {
+        closeModernTechWritingModal();
+      } else if (aiPoweredModal && aiPoweredModal.getAttribute('aria-hidden') === 'false') {
+        closeAiPoweredModal();
+      } else if (contentStrategyModal && contentStrategyModal.getAttribute('aria-hidden') === 'false') {
+        closeContentStrategyModal();
+      } else if (infoArchModal && infoArchModal.getAttribute('aria-hidden') === 'false') {
+        closeModal();
+      }
+    }
+  });
 })();
 
 
