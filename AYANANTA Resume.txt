@@ -51,40 +51,32 @@ papers, and case studies.
 Application documents.
 WORK EXPERIENCE
 HCL TECHNOLOGIES | Senior Technical Manager - User Assistance | Mar 2023 – Apr 2025
-• Led documentation for SAP Business ByDesign ERP: Authored and reviewed UI text, guided tours,
-hotfix docs, release notes, and "What’s New" content. Extensively used Oxygen XML for
-authoring purposes.
-• Reduced support tickets by 73.24% and accelerated onboarding by 48% via embedded in-app
-guidance.
-• Produced sprint-based What’s New videos, highlighting key feature enhancements.
-• Mentored team members: Assigned work, reviewed work of team members, and provided
-feedback for improvement. Checked for style guide compliance, language effectiveness, and
-adherence to other technical writing good practices.
+• Categorized Content as well as all Content Metadata in four structural levels to achieve single sourcing, content reuse, and rapid localization for a massive volume of documentation of an SaaS ERP solution from SAP, publishing in 13 languages.
+• Broadened the scope of Content Reuse to include granular content.
+• Maintained separate Translation and Publishing workflows for efficiently managing translation and delivery, ensuring an overall effective information architecture.
+• Authored and reviewed Product Documentation, ensuring compliance with localization and accessibility best practices.
+• Configured the Build Manifest and executed the Documentation Build in IxiaSoft CCMS for publication, and reviewed the Build Logs for errors.
 SUGARBOX NETWORKS | Manager – Technical Communications | Aug 2020 – Sept 2022
-• Authored, reviewed, and managed team deliverables and built internal knowledge base (KB) for
-hyperlocal CDN solutions.
-• Helped lower partner integration time for Origin server setup by 31.44% by developing a
-configuration guide that explained complex concepts and operations in a way that even nontechnical people can understand.
-• Authored API docs, technical blogs, case studies, and patent application documents. Extensively
-used Confluence for authoring purposes.
+• Created User Personas and drafted User Journeys—determining pain points, preferred content formats, and commonly used devices while consuming documentation—to optimally orient the content.
+• Drafted what successful User Assistance (UA) looks like and defined Key Performance Indicators (KPI). Tracked User Engagement and monitored and analyzed the performance of UA against the defined KPIs, assessing the efficacy of the content strategy.
+• Overseen the Content Creation process and managed writers and reviewed their deliverables. Authored the key concepts of a Configurations and Deployment manual for a Hyperlocal CDN solution.
+• Reviewed Blogs, Case Studies, and Patent Application Documents.
 HCL SOFTWARE | Senior Consultant - Technical Writing | Nov 2018 – Mar 2020
-• Developed product documentation, release notes, and API references for a data-engineering
-solution.
-• Collaborated with cross-functional teams to refine UI text accuracy and syntax.
+• Developed Product Documentation in an Agile Documentation environment by participating in daily scrums, following periodic sprint cycles, and attending sprint planning and retrospective meetings.
+• Compiled Release Notes and drafted Hotfix Documentation for a data-engineering solution. Also composed UI texts (microcopy).
+• Drafted API documentation, including both Conceptual and Reference sections.
+• Performed Usability Testing by following the procedural instructions for newly authored tasks.
 PERSISTENT SYSTEMS | Information Developer – Team Lead | Nov 2013 – May 2017
-• Created eLearning videos for medical device MVPs.
-• Developed user/installation guides for VMware’s vRealize Network Insight. Extensively used
-Arbortext DITA XML Editor for authoring purposes.
-• In an IBM project, worked on updating the product documentation and maintaining the
-operations guide. Also, successfully migrated the Operations Guide from the legacy MS Word to
-XML format
+• Produced Videos of minimum viable products (MVP)s of medical devices to demonstrate their use case to potential investors, using Microsoft PowerPoint, Camtasia, and Audacity.
+• Coordinated with Change Requesters, Implementers, and the Change Advisory Board (CAB) for the management of Change Requests submitted by Merck & Co global onsite teams, as per the ITIL process.
+• Developed a User Guide for VMware's vRealize Network Insight, performing cross-functional collaboration with globally distributed Product, UX, and Engineering teams.
+• In an IBM project, worked on updating the Product Documentation and maintaining the Operations Guide.
 ROLTA INDIA | Senior Technical Writer | Aug 2012 – Jul 2013
-• Developed content for new feature-enhancements for a GIS-based application belonging to the
-military domain. Used RoboHelp for authoring purposes.
+• Developed Content for new feature enhancements of a GIS-based application, using RoboHelp.
+• Validated the Procedural Steps of newly authored tasks by completing the task following the steps.
 POLARIS SOFTWARE LAB | Technical Writer | Oct 2010 – Aug 2012
-• For a banking and finance software, co-authored the user guide. Also validated the
-Installation and Configuration Guide by installing and configuring the product reading
-the step-by-step instructions mentioned in the document.
+• For a banking and finance software, co-authored the User Guide and Installation and Configuration Guide.
+• Validated the Procedural Steps of newly authored tasks by completing the task following the steps drafted by my coworker.
 CONNECTIVA SYSTEMS | Technical Writer | Feb 2008 – Sept 2010
 • For a telecom product, developed content for new-feature enhancements and worked on training
 PPTs.
