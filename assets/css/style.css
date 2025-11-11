@@ -63,6 +63,9 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .achievements-text p{margin-bottom:16px}
 .achievements-text ul{margin-bottom:0}
 .achievements-image img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
+.toolstack-content{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
+.toolstack-text h2{margin-top:0}
+.toolstack-image img{width:100%;max-width:none;height:auto;border-radius:12px;box-shadow:var(--shadow)}
 .hero .section-box{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start;padding:80px 32px}
 .intro-video{width:100%;height:auto;min-height:380px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease}
 .intro-video:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15)}
@@ -288,7 +291,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   100%{opacity:1;transform:translateX(0) scale(1) rotateY(0deg)}
 }
 
-.toolstack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
+.toolstack-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
 .tool-item{background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;text-align:center;font-weight:500;color:#166534;transition:all 0.3s ease;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center}
 .tool-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(22,101,52,0.2);background:linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)}
 .tool-item a{color:#166534;text-decoration:none;font-weight:500;display:block;width:100%;height:100%;text-align:center;display:flex;align-items:center;justify-content:center}
@@ -1105,6 +1108,26 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     font-size: 0.9rem;
     text-align: center;
   }
+  
+  .toolstack-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .toolstack-image {
+    order: -1;
+    text-align: center;
+  }
+  
+  .toolstack-image img {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .toolstack-text h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
 
 /* Small mobile devices (up to 480px) */
@@ -1438,6 +1461,20 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .achievements-image img {
+    max-width: 100%;
+  }
+  
+  .toolstack-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .toolstack-image {
+    order: -1;
+    text-align: center;
+  }
+  
+  .toolstack-image img {
     max-width: 100%;
   }
   
