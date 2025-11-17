@@ -63,9 +63,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .achievements-text p{margin-bottom:16px}
 .achievements-text ul{margin-bottom:0}
 .achievements-image img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
-.toolstack-content{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:start}
-.toolstack-text h2{margin-top:0}
-.toolstack-image img{width:100%;max-width:none;height:auto;border-radius:12px;box-shadow:var(--shadow)}
+.toolstack-content{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:stretch}
+.toolstack-text{display:flex;flex-direction:column;min-height:100%}
+.toolstack-text h2{margin-top:0;flex-shrink:0}
+.toolstack-grid{flex:1}
+.toolstack-image{display:flex;align-items:stretch;height:100%}
+.toolstack-image img{width:100%;max-width:none;height:100%;object-fit:contain;border-radius:12px;box-shadow:var(--shadow)}
 .hero .section-box{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start;padding:80px 32px}
 .intro-video{width:100%;height:auto;min-height:380px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease}
 .intro-video:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15)}
