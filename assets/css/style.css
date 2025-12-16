@@ -75,6 +75,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .intro-video video{width:100%;height:auto;min-height:380px;object-fit:cover;display:block;border-radius:12px}
 .content-ecosystem{margin-top:24px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
 .content-ecosystem img{width:100%;height:auto;display:block}
+.profile-summary{margin-top:24px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
+.profile-summary img{width:100%;height:auto;display:block}
 .section#roles .content-ecosystem{width:100%;max-width:900px;margin:16px auto;padding:8px;display:block}
 .section#roles .content-ecosystem img{width:100%;height:auto;display:block}
 
@@ -90,7 +92,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .personal-info strong{color:var(--emerald);font-weight:600}
 .download-resume-btn{
   display:block;
-  margin:48px auto 56px auto;
+  margin:32px auto 16px auto;
   text-align:center;
   max-width:200px;
   width:fit-content;
@@ -162,10 +164,29 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .name-title:hover{transform:translateY(-2px);text-shadow:0 4px 8px rgba(0,0,0,0.15), 0 0 30px rgba(16,185,129,0.3)}
 .name-title:hover::before{opacity:1}
 .tagline{font-weight:500;margin-top:16px;color:#9ca3af;font-family:'Georgia', 'Times New Roman', serif;font-style:italic;font-size:0.95rem}
-.lede{color:var(--muted);margin-top:16px}
+.lede{color:var(--text);margin-top:16px}
 .cta-row{display:flex;flex-direction:column;gap:16px;margin:16px 0}
 .consultation-text{color:#9ca3af;margin:0;line-height:1.6}
 .cta-row .btn{display:block;margin:32px auto 0 auto;text-align:center;width:fit-content;min-width:400px;white-space:nowrap}
+.hero-media .cta-row{margin:0}
+.preface-inline{
+  margin-top:48px;
+  padding:16px 20px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+.preface-inline h3{
+  margin:0 0 12px 0;
+  text-align:center;
+}
+.preface-inline p{
+  margin:0 0 10px 0;
+}
+.preface-inline p:last-child{
+  margin-bottom:0;
+}
 .quick-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;padding:0;margin:16px 0;list-style:none;color:var(--muted)}
 
 .timeline{list-style:none;padding:0;margin:0;border-left:3px solid var(--emerald);position:relative;left:50%;transform:translateX(-50%);width:100%}
