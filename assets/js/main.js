@@ -436,10 +436,87 @@
     }
   }
 
+  // Generic Skill Image Modal functionality (for all skill card images)
+  const skillImageModal = document.getElementById('skillImageModal');
+  const skillImageModalOverlay = skillImageModal?.querySelector('.modal-overlay');
+  const skillImageModalClose = skillImageModal?.querySelector('.modal-close');
+  const skillImageModalImg = document.getElementById('skillImageModalImg');
+
+  function openSkillImageModal(img) {
+    if (!skillImageModal || !skillImageModalImg) return;
+    const src = img.getAttribute('src');
+    const alt = img.getAttribute('alt') || 'Skill diagram';
+
+    skillImageModalImg.src = src || '';
+    skillImageModalImg.alt = alt;
+
+    const titleEl = document.getElementById('skillImage-modal-title');
+    if (titleEl) {
+      titleEl.textContent = alt || 'Skill Diagram';
+    }
+
+    skillImageModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    if (skillImageModalClose) {
+      setTimeout(() => skillImageModalClose.focus(), 100);
+    }
+  }
+
+  function closeSkillImageModal() {
+    if (!skillImageModal) return;
+    skillImageModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (skillImageModal) {
+    const skillImages = document.querySelectorAll('.skill-card-image');
+
+    skillImages.forEach(img => {
+      if (!img.hasAttribute('tabindex')) {
+        img.setAttribute('tabindex', '0');
+      }
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', img.getAttribute('alt') || 'View larger diagram');
+
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openSkillImageModal(img);
+      });
+
+      img.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          openSkillImageModal(img);
+        }
+      });
+    });
+
+    if (skillImageModalClose) {
+      skillImageModalClose.addEventListener('click', closeSkillImageModal);
+    }
+
+    skillImageModal.addEventListener('click', function(e) {
+      if (e.target === skillImageModal || e.target === skillImageModalOverlay) {
+        closeSkillImageModal();
+      }
+    });
+
+    const skillImageModalContent = skillImageModal.querySelector('.modal-content');
+    if (skillImageModalContent) {
+      skillImageModalContent.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+  }
+
   // Close modal when pressing Escape key (handle all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
-      if (modernTechWritingModal && modernTechWritingModal.getAttribute('aria-hidden') === 'false') {
+      if (skillImageModal && skillImageModal.getAttribute('aria-hidden') === 'false') {
+        closeSkillImageModal();
+      } else if (modernTechWritingModal && modernTechWritingModal.getAttribute('aria-hidden') === 'false') {
         closeModernTechWritingModal();
       } else if (aiPoweredModal && aiPoweredModal.getAttribute('aria-hidden') === 'false') {
         closeAiPoweredModal();
