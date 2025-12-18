@@ -1153,7 +1153,6 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .toolstack-image {
-    order: -1;
     text-align: center;
   }
   
@@ -1508,7 +1507,6 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .toolstack-image {
-    order: -1;
     text-align: center;
   }
   
