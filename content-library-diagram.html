@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reusable Content Library Structure</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        #root {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #a0a0b0;
+            font-weight: 300;
+        }
+
+        .diagram-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .folder-card {
+            background: rgba(30, 30, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .folder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .folder-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .folder-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .folder-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .folder-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .folder-number {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: 700;
+            margin-left: auto;
+        }
+
+        .subfolder-list {
+            list-style: none;
+            display: none;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(102, 126, 234, 0.15);
+        }
+
+        .subfolder-list.expanded {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .subfolder-item {
+            padding: 10px 12px;
+            margin: 6px 0;
+            background: rgba(102, 126, 234, 0.08);
+            border-left: 3px solid #667eea;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #c0c0d0;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.2s ease;
+        }
+
+        .subfolder-item:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateX(4px);
+        }
+
+        .expand-indicator {
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 0.8rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-indicator.expanded {
+            transform: rotate(180deg);
+        }
+
+        .legend {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(30, 30, 50, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .legend h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(102, 126, 234, 0.08);
+            border-radius: 8px;
+        }
+
+        .legend-icon {
+            font-size: 1.3rem;
+        }
+
+        .legend-text {
+            font-size: 0.9rem;
+            color: #c0c0d0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .diagram-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const ContentLibraryDiagram = () => {
+            const [expandedCards, setExpandedCards] = useState({});
+
+            const folderData = [
+                {
+                    id: 1,
+                    icon: '🎨',
+                    title: 'Core Assets',
+                    subfolders: [
+                        'Brand Guidelines',
+                        'Templates',
+                        'Media Assets',
+                        'Logo Files',
+                        'Color Palettes',
+                        'Typography',
+                        'Voice and Tone'
+                    ]
+                },
+                {
+                    id: 2,
+                    icon: '✍️',
+                    title: 'Written Content',
+                    subfolders: [
+                        'Blog Posts',
+                        'Articles',
+                        'Copy Snippets',
+                        'Scripts',
+                        'Email Content',
+                        'Long-Form Content',
+                        'Headlines & CTAs'
+                    ]
+                },
+                {
+                    id: 3,
+                    icon: '📱',
+                    title: 'Social Media',
+                    subfolders: [
+                        'LinkedIn',
+                        'Twitter/X',
+                        'Instagram',
+                        'Facebook',
+                        'TikTok',
+                        'YouTube',
+                        'Evergreen Posts',
+                        'Campaign Content'
+                    ]
+                },
+                {
+                    id: 4,
+                    icon: '🎬',
+                    title: 'Visual Content',
+                    subfolders: [
+                        'Infographics',
+                        'Presentations',
+                        'Design Elements',
+                        'Icons & Illustrations',
+                        'Data Visualizations',
+                        'Charts & Graphs'
+                    ]
+                },
+                {
+                    id: 5,
+                    icon: '📊',
+                    title: 'Research & Data',
+                    subfolders: [
+                        'Industry Research',
+                        'Customer Insights',
+                        'Competitor Analysis',
+                        'Statistics Database',
+                        'Survey Results',
+                        'Market Reports'
+                    ]
+                },
+                {
+                    id: 6,
+                    icon: '📁',
+                    title: 'Campaign Archives',
+                    subfolders: [
+                        '2024 - Q1/Q2/Q3/Q4',
+                        '2025 - Ongoing',
+                        'Campaign Templates',
+                        'Historical Performance',
+                        'Seasonal Campaigns'
+                    ]
+                },
+                {
+                    id: 7,
+                    icon: '🏷️',
+                    title: 'Content by Topic',
+                    subfolders: [
+                        'Product Education',
+                        'Industry Trends',
+                        'Customer Success',
+                        'Company News',
+                        'Thought Leadership',
+                        'Seasonal Content'
+                    ]
+                },
+                {
+                    id: 8,
+                    icon: '🎯',
+                    title: 'Content by Format',
+                    subfolders: [
+                        'Video Content',
+                        'Audio/Podcasts',
+                        'Interactive Content',
+                        'Quizzes & Assessments',
+                        'PDF Downloads',
+                        'Webinar Recordings'
+                    ]
+                },
+                {
+                    id: 9,
+                    icon: '⚖️',
+                    title: 'Legal & Compliance',
+                    subfolders: [
+                        'Disclaimers',
+                        'Terms & Conditions',
+                        'Privacy Policies',
+                        'Copyright Info',
+                        'Approved Claims'
+                    ]
+                },
+                {
+                    id: 10,
+                    icon: '🔄',
+                    title: 'Content Workflow',
+                    subfolders: [
+                        'Content Calendar',
+                        'Review Queue',
+                        'Approval Pending',
+                        'Needs Revision',
+                        'Archive'
+                    ]
+                }
+            ];
+
+            const toggleCard = (id) => {
+                setExpandedCards(prev => ({
+                    ...prev,
+                    [id]: !prev[id]
+                }));
+            };
+
+            return (
+                <>
+                    <div className="header">
+                        <h1>📚 Reusable Content Library</h1>
+                        <p>Click any folder to explore its structure</p>
+                    </div>
+
+                    <div className="diagram-container">
+                        {folderData.map((folder, index) => (
+                            <div
+                                key={folder.id}
+                                className="folder-card"
+                                onClick={() => toggleCard(folder.id)}
+                                style={{
+                                    animationDelay: `${index * 0.1}s`
+                                }}
+                            >
+                                <div className="folder-header">
+                                    <div className="folder-icon">{folder.icon}</div>
+                                    <div className="folder-title">{folder.title}</div>
+                                    <div className="folder-number">#{folder.id}</div>
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', color: '#a0a0b0', fontSize: '0.85rem' }}>
+                                    {folder.subfolders.length} subfolders
+                                    <span className={`expand-indicator ${expandedCards[folder.id] ? 'expanded' : ''}`}>
+                                        ▼
+                                    </span>
+                                </div>
+                                <ul className={`subfolder-list ${expandedCards[folder.id] ? 'expanded' : ''}`}>
+                                    {folder.subfolders.map((subfolder, idx) => (
+                                        <li key={idx} className="subfolder-item">
+                                            📂 {subfolder}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="legend">
+                        <h3>💡 Quick Reference Guide</h3>
+                        <div className="legend-grid">
+                            <div className="legend-item">
+                                <span className="legend-icon">📋</span>
+                                <span className="legend-text">Use naming conventions consistently</span>
+                            </div>
+                            <div className="legend-item">
+                                <span className="legend-icon">🔍</span>
+                                <span className="legend-text">Tag content for easy search</span>
+                            </div>
+                            <div className="legend-item">
+                                <span className="legend-icon">♻️</span>
+                                <span className="legend-text">Track repurposing opportunities</span>
+                            </div>
+                            <div className="legend-item">
+                                <span className="legend-icon">📅</span>
+                                <span className="legend-text">Regular quarterly audits</span>
+                            </div>
+                            <div className="legend-item">
+                                <span className="legend-icon">🔐</span>
+                                <span className="legend-text">Maintain access permissions</span>
+                            </div>
+                            <div className="legend-item">
+                                <span className="legend-icon">💾</span>
+                                <span className="legend-text">Backup content regularly</span>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            );
+        };
+
+        ReactDOM.render(<ContentLibraryDiagram />, document.getElementById('root'));
+    </script>
+</body>
+</html>
