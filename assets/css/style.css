@@ -1752,9 +1752,10 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 }
 
 .info-arch-content .card-list {
-  list-style: none;
-  padding-left: 0;
+  list-style: decimal;
+  padding-left: 24px;
   margin-bottom: 24px;
+  counter-reset: step-counter;
 }
 
 .info-arch-content .card-list > li {
@@ -1827,6 +1828,9 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   width: 100%;
   min-height: 1400px;
   border-radius: 8px;
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 
 .service-offering-content h3 {
@@ -1846,6 +1850,11 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   line-height: 1.8;
   color: var(--text);
   margin-bottom: 24px;
+}
+
+.service-offering-content p.muted-text {
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 .service-offering-content ul {

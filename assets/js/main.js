@@ -511,87 +511,127 @@
     }
   }
 
-  // Service Offering Modals functionality
-  const infoArchServiceCard = document.getElementById('info-arch-service-card');
-  const infoArchServiceModal = document.getElementById('infoArchServiceModal');
-  const technicalContentCard = document.getElementById('technical-content-card');
-  const technicalContentModal = document.getElementById('technicalContentModal');
-  const apiDocServiceCard = document.getElementById('api-doc-service-card');
-  const apiDocServiceModal = document.getElementById('apiDocServiceModal');
-  const aiNativeDocCard = document.getElementById('ai-native-doc-card');
-  const aiNativeDocModal = document.getElementById('aiNativeDocModal');
+  // Service Offering Modals functionality - wait for DOM to be ready
+  let infoArchService, technicalContent, apiDocService, aiNativeDoc;
+  
+  function initServiceOfferingModals() {
+    const infoArchServiceCard = document.getElementById('info-arch-service-card');
+    const infoArchServiceModal = document.getElementById('infoArchServiceModal');
+    const technicalContentCard = document.getElementById('technical-content-card');
+    const technicalContentModal = document.getElementById('technicalContentModal');
+    const apiDocServiceCard = document.getElementById('api-doc-service-card');
+    const apiDocServiceModal = document.getElementById('apiDocServiceModal');
+    const aiNativeDocCard = document.getElementById('ai-native-doc-card');
+    const aiNativeDocModal = document.getElementById('aiNativeDocModal');
 
-  // Generic function to handle service offering modals
-  function setupServiceOfferingModal(card, modal) {
-    if (!card || !modal) return null;
-    
-    const modalOverlay = modal.querySelector('.modal-overlay');
-    const modalClose = modal.querySelector('.modal-close');
-    
-    function openModal() {
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      if (modalClose) {
-        setTimeout(() => modalClose.focus(), 100);
+    // Generic function to handle service offering modals
+    function setupServiceOfferingModal(card, modal) {
+      if (!card || !modal) {
+        console.warn('Card or modal not found:', card ? 'card found' : 'card missing', modal ? 'modal found' : 'modal missing');
+        return null;
       }
-    }
-    
-    function closeModal() {
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      if (card) {
-        card.focus();
+      
+      const modalOverlay = modal.querySelector('.modal-overlay');
+      const modalClose = modal.querySelector('.modal-close');
+      
+      function openModal() {
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (modalClose) {
+          setTimeout(() => modalClose.focus(), 100);
+        }
       }
-    }
-    
-    // Open modal on card click
-    card.addEventListener('click', function(e) {
-      e.preventDefault();
-      openModal();
-    });
-    
-    // Support keyboard navigation
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+      
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (card) {
+          card.focus();
+        }
+      }
+      
+      // Open modal on card click (handle clicks anywhere on the card including child elements)
+      card.addEventListener('click', function(e) {
+        // Allow clicks on links or buttons within the card to work normally
+        const clickedLink = e.target.closest('a, button');
+        if (clickedLink && clickedLink !== card) {
+          return;
+        }
+        console.log('Card clicked:', card.id, 'Target:', e.target.tagName);
         e.preventDefault();
+        e.stopPropagation();
         openModal();
-      }
-    });
-    
-    // Close modal on close button click
-    if (modalClose) {
-      modalClose.addEventListener('click', closeModal);
-    }
-    
-    // Close modal on overlay click
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal || e.target === modalOverlay) {
-          closeModal();
+      }, false);
+      
+      // Support keyboard navigation
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          openModal();
         }
       });
+      
+      // Close modal on close button click
+      if (modalClose) {
+        modalClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeModal();
+        });
+      }
+      
+      // Close modal on overlay click
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal || e.target === modalOverlay) {
+            closeModal();
+          }
+        });
+      }
+      
+      // Prevent modal content clicks from closing
+      const modalContent = modal.querySelector('.modal-content');
+      if (modalContent) {
+        modalContent.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
+      
+      return { openModal: openModal, closeModal: closeModal };
     }
     
-    // Prevent modal content clicks from closing
-    const modalContent = modal.querySelector('.modal-content');
-    if (modalContent) {
-      modalContent.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-    }
+    // Setup all service offering modals
+    infoArchService = setupServiceOfferingModal(infoArchServiceCard, infoArchServiceModal);
+    technicalContent = setupServiceOfferingModal(technicalContentCard, technicalContentModal);
+    apiDocService = setupServiceOfferingModal(apiDocServiceCard, apiDocServiceModal);
+    aiNativeDoc = setupServiceOfferingModal(aiNativeDocCard, aiNativeDocModal);
     
-    return { openModal: openModal, closeModal: closeModal };
+    // Debug: Log if modals were set up
+    console.log('Service offering modals initialized:', {
+      infoArch: !!infoArchService,
+      technicalContent: !!technicalContent,
+      apiDoc: !!apiDocService,
+      aiNative: !!aiNativeDoc
+    });
   }
   
-  // Setup all service offering modals
-  const infoArchService = setupServiceOfferingModal(infoArchServiceCard, infoArchServiceModal);
-  const technicalContent = setupServiceOfferingModal(technicalContentCard, technicalContentModal);
-  const apiDocService = setupServiceOfferingModal(apiDocServiceCard, apiDocServiceModal);
-  const aiNativeDoc = setupServiceOfferingModal(aiNativeDocCard, aiNativeDocModal);
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceOfferingModals);
+  } else {
+    // DOM already ready, initialize immediately
+    setTimeout(initServiceOfferingModals, 0);
+  }
 
   // Close modal when pressing Escape key (handle all modals)
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+      const aiNativeDocModal = document.getElementById('aiNativeDocModal');
+      const apiDocServiceModal = document.getElementById('apiDocServiceModal');
+      const technicalContentModal = document.getElementById('technicalContentModal');
+      const infoArchServiceModal = document.getElementById('infoArchServiceModal');
+      
       if (aiNativeDocModal && aiNativeDocModal.getAttribute('aria-hidden') === 'false' && aiNativeDoc) {
         aiNativeDoc.closeModal();
       } else if (apiDocServiceModal && apiDocServiceModal.getAttribute('aria-hidden') === 'false' && apiDocService) {
