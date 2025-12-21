@@ -336,6 +336,17 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   font-size:0.65rem;
   color:var(--muted);
   font-style:italic;
+}
+.skill-image-expand-text{
+  margin:8px 0 0;
+  font-size:0.85rem;
+  color:var(--muted);
+  text-align:center;
+  cursor:pointer;
+  transition:color 0.3s ease;
+}
+.skill-card:hover .skill-image-expand-text{
+  color:var(--emerald);
   text-align:center;
 }
 
