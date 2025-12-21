@@ -62,7 +62,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .achievements-text h2{margin-top:0}
 .achievements-text p{margin-bottom:16px}
 .achievements-text ul{margin-bottom:0}
-.achievements-image img{width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
+.achievements-image img{width:100%;height:auto;max-height:300px;object-fit:contain;border-radius:12px;box-shadow:var(--shadow)}
 .toolstack-content{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:stretch}
 .toolstack-text{display:flex;flex-direction:column;min-height:100%}
 .toolstack-text h2{margin-top:0;flex-shrink:0}
@@ -197,14 +197,18 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .tag{border:1px solid var(--border);padding:4px 8px;border-radius:999px;color:var(--muted);font-size:12px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:32px}
-#projects .cards{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+#projects .cards{grid-template-columns:repeat(5,1fr);gap:16px}
 .info-arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width: 1200px){
+  #projects .cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+}
 @media (max-width: 768px){
   #projects .cards{grid-template-columns:1fr}
   .info-arch-grid{grid-template-columns:1fr !important;gap:16px}
   .info-arch-grid > div{padding:0 !important}
 }
 .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);transition:all 0.4s ease;position:relative;overflow:hidden;height:100%;display:flex;flex-direction:column}
+#projects .card{padding:20px}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg, var(--emerald), #059669, #10b981);transform:scaleX(0);transition:transform 0.4s ease}
 .card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,0.15);border-color:var(--emerald)}
 .card:hover::before{transform:scaleX(1)}
@@ -220,6 +224,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .service-offering-card:nth-child(2) { animation-delay: 0.2s; }
 .service-offering-card:nth-child(3) { animation-delay: 0.3s; }
 .service-offering-card:nth-child(4) { animation-delay: 0.4s; }
+.service-offering-card:nth-child(5) { animation-delay: 0.5s; }
 
 .service-offering-card::after {
   content: '';
@@ -248,6 +253,15 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   position: relative;
   z-index: 1;
   transition: transform 0.3s ease, color 0.3s ease;
+}
+.service-offering-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.service-offering-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .service-offering-card:hover h3 {
@@ -1230,6 +1244,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   .achievements-image img {
     max-width: 100%;
     width: 100%;
+    max-height: 300px;
+    object-fit: contain;
   }
   
   .achievements-text h2 {
@@ -1594,6 +1610,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   
   .achievements-image img {
     max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
   }
   
   .toolstack-content {

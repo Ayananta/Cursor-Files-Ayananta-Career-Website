@@ -181,39 +181,41 @@
   }
 
   // Generic Skill Image Modal functionality (for all skill card images)
-  const skillImageModal = document.getElementById('skillImageModal');
-  const skillImageModalOverlay = skillImageModal?.querySelector('.modal-overlay');
-  const skillImageModalClose = skillImageModal?.querySelector('.modal-close');
-  const skillImageModalImg = document.getElementById('skillImageModalImg');
+  function initSkillImageModal() {
+    const skillImageModal = document.getElementById('skillImageModal');
+    if (!skillImageModal) return;
+    
+    const skillImageModalOverlay = skillImageModal.querySelector('.modal-overlay');
+    const skillImageModalClose = skillImageModal.querySelector('.modal-close');
+    const skillImageModalImg = document.getElementById('skillImageModalImg');
 
-  function openSkillImageModal(img) {
-    if (!skillImageModal || !skillImageModalImg) return;
-    const src = img.getAttribute('src');
-    const alt = img.getAttribute('alt') || 'Skill diagram';
+    function openSkillImageModal(img) {
+      if (!skillImageModal || !skillImageModalImg) return;
+      const src = img.getAttribute('src');
+      const alt = img.getAttribute('alt') || 'Skill diagram';
 
-    skillImageModalImg.src = src || '';
-    skillImageModalImg.alt = alt;
+      skillImageModalImg.src = src || '';
+      skillImageModalImg.alt = alt;
 
-    const titleEl = document.getElementById('skillImage-modal-title');
-    if (titleEl) {
-      titleEl.textContent = alt || 'Skill Diagram';
+      const titleEl = document.getElementById('skillImage-modal-title');
+      if (titleEl) {
+        titleEl.textContent = alt || 'Skill Diagram';
+      }
+
+      skillImageModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      if (skillImageModalClose) {
+        setTimeout(() => skillImageModalClose.focus(), 100);
+      }
     }
 
-    skillImageModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    function closeSkillImageModal() {
+      if (!skillImageModal) return;
+      skillImageModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
 
-    if (skillImageModalClose) {
-      setTimeout(() => skillImageModalClose.focus(), 100);
-    }•	Optimized SAP Business ByDesign content to enable 11% reuse across the documentation set, implementing technical enforcement mechanisms to prevent structural irregularities
-  }
-
-  function closeSkillImageModal() {
-    if (!skillImageModal) return;
-    skillImageModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  if (skillImageModal) {
     const skillImages = document.querySelectorAll('.skill-card-image');
 
     skillImages.forEach(img => {
@@ -222,8 +224,10 @@
       }
       img.setAttribute('role', 'button');
       img.setAttribute('aria-label', img.getAttribute('alt') || 'View larger diagram');
+      img.style.cursor = 'pointer';
 
       img.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         openSkillImageModal(img);
       });
@@ -241,8 +245,12 @@
       skillImageModalClose.addEventListener('click', closeSkillImageModal);
     }
 
+    if (skillImageModalOverlay) {
+      skillImageModalOverlay.addEventListener('click', closeSkillImageModal);
+    }
+
     skillImageModal.addEventListener('click', function(e) {
-      if (e.target === skillImageModal || e.target === skillImageModalOverlay) {
+      if (e.target === skillImageModal) {
         closeSkillImageModal();
       }
     });
@@ -253,10 +261,20 @@
         e.stopPropagation();
       });
     }
+
+    // Store close function globally for Escape key handler
+    window.closeSkillImageModal = closeSkillImageModal;
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSkillImageModal);
+  } else {
+    initSkillImageModal();
   }
 
   // Service Offering Modals functionality - wait for DOM to be ready
-  let infoArchService, technicalContent, apiDocService, aiNativeDoc;
+  let infoArchService, technicalContent, apiDocService, aiNativeDoc, uxWriting;
   
   function initServiceOfferingModals() {
     const infoArchServiceCard = document.getElementById('info-arch-service-card');
@@ -267,6 +285,8 @@
     const apiDocServiceModal = document.getElementById('apiDocServiceModal');
     const aiNativeDocCard = document.getElementById('ai-native-doc-card');
     const aiNativeDocModal = document.getElementById('aiNativeDocModal');
+    const uxWritingCard = document.getElementById('ux-writing-card');
+    const uxWritingModal = document.getElementById('uxWritingModal');
 
     // Generic function to handle service offering modals
     function setupServiceOfferingModal(card, modal) {
@@ -350,13 +370,15 @@
     technicalContent = setupServiceOfferingModal(technicalContentCard, technicalContentModal);
     apiDocService = setupServiceOfferingModal(apiDocServiceCard, apiDocServiceModal);
     aiNativeDoc = setupServiceOfferingModal(aiNativeDocCard, aiNativeDocModal);
+    uxWriting = setupServiceOfferingModal(uxWritingCard, uxWritingModal);
     
     // Debug: Log if modals were set up
     console.log('Service offering modals initialized:', {
       infoArch: !!infoArchService,
       technicalContent: !!technicalContent,
       apiDoc: !!apiDocService,
-      aiNative: !!aiNativeDoc
+      aiNative: !!aiNativeDoc,
+      uxWriting: !!uxWriting
     });
   }
   
@@ -376,7 +398,10 @@
       const technicalContentModal = document.getElementById('technicalContentModal');
       const infoArchServiceModal = document.getElementById('infoArchServiceModal');
       
-      if (aiNativeDocModal && aiNativeDocModal.getAttribute('aria-hidden') === 'false' && aiNativeDoc) {
+      const uxWritingModal = document.getElementById('uxWritingModal');
+      if (uxWritingModal && uxWritingModal.getAttribute('aria-hidden') === 'false' && uxWriting) {
+        uxWriting.closeModal();
+      } else if (aiNativeDocModal && aiNativeDocModal.getAttribute('aria-hidden') === 'false' && aiNativeDoc) {
         aiNativeDoc.closeModal();
       } else if (apiDocServiceModal && apiDocServiceModal.getAttribute('aria-hidden') === 'false' && apiDocService) {
         apiDocService.closeModal();
@@ -384,8 +409,11 @@
         technicalContent.closeModal();
       } else if (infoArchServiceModal && infoArchServiceModal.getAttribute('aria-hidden') === 'false' && infoArchService) {
         infoArchService.closeModal();
-      } else if (skillImageModal && skillImageModal.getAttribute('aria-hidden') === 'false') {
-        closeSkillImageModal();
+      } else {
+        const skillImageModal = document.getElementById('skillImageModal');
+        if (skillImageModal && skillImageModal.getAttribute('aria-hidden') === 'false' && window.closeSkillImageModal) {
+          window.closeSkillImageModal();
+        }
       }
     }
   });
