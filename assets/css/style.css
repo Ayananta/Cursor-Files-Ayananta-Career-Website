@@ -52,6 +52,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 
 .section{width:100%;margin:0;padding:32px 32px}
 .section-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;box-shadow:var(--shadow);margin-bottom:24px;transition:transform 0.3s ease, box-shadow 0.3s ease}
+#certs .section-box{padding:8px 16px !important}
+#certs .card{padding:16px !important}
+#certs .card h3{font-size:1.1rem !important;margin-bottom:8px !important}
+#certs .card p{font-size:0.9rem !important;margin-bottom:8px !important}
+#certs .card .meta{font-size:0.85rem !important;margin-bottom:6px !important}
+#contact .section-box{padding:16px !important}
 .section-box:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .preface-content{display:grid;grid-template-columns:1fr 300px;gap:32px;align-items:start}
 .preface-text h2{margin-top:0}
@@ -62,13 +68,14 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .achievements-text h2{margin-top:0}
 .achievements-text p{margin-bottom:16px}
 .achievements-text ul{margin-bottom:0}
-.achievements-image img{width:100%;height:auto;max-height:300px;object-fit:contain;border-radius:12px;box-shadow:var(--shadow)}
-.toolstack-content{display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:stretch}
-.toolstack-text{display:flex;flex-direction:column;min-height:100%}
-.toolstack-text h2{margin-top:0;flex-shrink:0}
-.toolstack-grid{flex:1}
-.toolstack-image{display:flex;align-items:stretch;height:100%}
-.toolstack-image img{width:100%;max-width:none;height:100%;object-fit:contain;border-radius:12px;box-shadow:var(--shadow)}
+.achievements-image img{width:100%;height:auto;max-height:210px;object-fit:contain;border-radius:12px;box-shadow:var(--shadow)}
+#toolstack .section-box{height:auto !important;display:block !important}
+#toolstack .toolstack-content{display:grid !important;grid-template-columns:1fr 1fr !important;gap:16px !important;align-items:start !important}
+#toolstack .toolstack-text{display:flex !important;flex-direction:column !important}
+#toolstack .toolstack-text h2{margin-top:0 !important;flex-shrink:0 !important}
+#toolstack .toolstack-grid{flex:0 0 auto !important}
+#toolstack .toolstack-image{display:flex !important;align-items:start !important;justify-content:center !important}
+#toolstack .toolstack-image img{width:50% !important;max-width:50% !important;height:auto !important;object-fit:contain !important;border-radius:12px !important;box-shadow:var(--shadow) !important}
 .hero .section-box{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start;padding:80px 32px}
 .intro-video{width:100%;height:auto;min-height:380px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease}
 .intro-video:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15)}
@@ -352,7 +359,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   font-style:italic;
 }
 .skill-image-expand-text{
-  margin:8px 0 0;
+  margin:20px 0 0;
   font-size:0.85rem;
   color:var(--muted);
   text-align:center;
@@ -438,8 +445,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   100%{opacity:1;transform:translateX(0) scale(1) rotateY(0deg)}
 }
 
-.toolstack-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:20px}
-.tool-item{background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;text-align:center;font-weight:500;color:#166534;transition:all 0.3s ease;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center}
+.toolstack-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+.tool-item{background:linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);border:1px solid #bbf7d0;border-radius:8px;padding:5px 10px;text-align:center;font-weight:500;color:#166534;transition:all 0.3s ease;cursor:pointer;font-size:0.75rem;display:flex;align-items:center;justify-content:center}
 .tool-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(22,101,52,0.2);background:linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)}
 .tool-item a{color:#166534;text-decoration:none;font-weight:500;display:block;width:100%;height:100%;text-align:center;display:flex;align-items:center;justify-content:center}
 .tool-item a:hover{color:#166534;text-decoration:none}
@@ -911,6 +918,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     padding: 20px 16px;
     margin-bottom: 16px;
   }
+  #certs .section-box {
+    padding: 10px 12px !important;
+  }
+  #contact .section-box {
+    padding: 10px 12px !important;
+  }
   
   /* Hero section mobile optimization */
   .hero .section-box {
@@ -1122,8 +1135,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .artifact-item, .tool-item, .industry-item {
-    padding: 8px 10px;
-    font-size: 0.85rem;
+    padding: 4px 8px;
+    font-size: 0.75rem;
   }
   
   /* Expertise section */
@@ -1244,7 +1257,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   .achievements-image img {
     max-width: 100%;
     width: 100%;
-    max-height: 300px;
+    max-height: 210px;
     object-fit: contain;
   }
   
@@ -1258,18 +1271,21 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     text-align: center;
   }
   
-  .toolstack-content {
+  #toolstack .toolstack-content {
     grid-template-columns: 1fr;
     gap: 20px;
+    align-items: start !important;
   }
   
-  .toolstack-image {
+  #toolstack .toolstack-image {
     text-align: center;
+    align-items: start;
   }
   
-  .toolstack-image img {
-    max-width: 100%;
-    width: 100%;
+  #toolstack .toolstack-image img {
+    max-width: 50%;
+    width: 50%;
+    height: auto;
   }
   
   .toolstack-text h2 {
@@ -1286,6 +1302,12 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   
   .section-box {
     padding: 16px 12px;
+  }
+  #certs .section-box {
+    padding: 4px 8px !important;
+  }
+  #contact .section-box {
+    padding: 8px 10px !important;
   }
   
   .hero .section-box {
@@ -1610,21 +1632,25 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   
   .achievements-image img {
     max-width: 100%;
-    max-height: 300px;
+    max-height: 210px;
     object-fit: contain;
   }
   
-  .toolstack-content {
+  #toolstack .toolstack-content {
     grid-template-columns: 1fr;
     gap: 24px;
+    align-items: start !important;
   }
   
-  .toolstack-image {
+  #toolstack .toolstack-image {
     text-align: center;
+    align-items: start;
   }
   
-  .toolstack-image img {
-    max-width: 100%;
+  #toolstack .toolstack-image img {
+    max-width: 50%;
+    width: 50%;
+    height: auto;
   }
   
   /* Passion and Interests tablet adjustments */
