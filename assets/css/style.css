@@ -69,14 +69,14 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .achievements-text p{margin-bottom:16px}
 .achievements-text ul{margin-bottom:0}
 .achievements-image{display:contents !important}
-.achievements-image img{width:100%;height:auto;max-height:210px;object-fit:contain;border-radius:12px;box-shadow:var(--shadow);display:block !important}
+.achievements-image img{width:100%;height:auto;max-height:210px;object-fit:contain;border-radius:12px;box-shadow:var(--shadow);display:block !important;grid-column:2}
 #toolstack .section-box{height:auto !important;display:block !important}
 #toolstack .toolstack-content{display:grid !important;grid-template-columns:35fr 65fr !important;gap:24px !important;align-items:stretch !important}
 #toolstack .toolstack-text{display:flex !important;flex-direction:column !important}
 #toolstack .toolstack-text h2{margin-top:0 !important;flex-shrink:0 !important}
 #toolstack .toolstack-grid{flex:0 0 auto !important}
-#toolstack .toolstack-image{display:contents !important}
-#toolstack .toolstack-image img{width:100% !important;max-width:100% !important;max-height:600px !important;height:auto !important;object-fit:contain !important;border-radius:12px !important;box-shadow:var(--shadow) !important;display:block !important}
+#toolstack .toolstack-image{display:flex !important;justify-content:center !important;align-items:center !important;width:100% !important}
+#toolstack .toolstack-image img{width:120% !important;max-width:120% !important;max-height:600px !important;height:auto !important;object-fit:contain !important;border-radius:12px !important;box-shadow:var(--shadow) !important;display:block !important}
 .hero .section-box{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start;padding:80px 32px}
 .intro-video{width:100%;height:auto;min-height:380px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s ease}
 .intro-video:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.15)}
@@ -110,6 +110,17 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   border:2px solid var(--emerald);
   animation:resumeButtonPulse 2s ease-in-out infinite;
 }
+.call-consult-btn{
+  display:block;
+  margin:16px auto 16px auto;
+  text-align:center;
+  max-width:200px;
+  width:fit-content;
+  padding:14px 19px;
+  position:relative;
+  overflow:hidden;
+  border:2px solid var(--emerald);
+}
 
 .download-resume-btn::before{
   content:'';
@@ -141,6 +152,36 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 }
 
 .download-resume-btn:hover{
+  transform:scale(1.05) rotate(1deg);
+  box-shadow:0 8px 25px rgba(16,185,129,0.3);
+}
+.call-consult-btn::before{
+  content:'';
+  position:absolute;
+  top:-2px;
+  left:-2px;
+  right:-2px;
+  bottom:-2px;
+  background:linear-gradient(45deg, var(--emerald), #059669, var(--emerald), #10b981, var(--emerald));
+  background-size:300% 300%;
+  border-radius:inherit;
+  z-index:-1;
+  animation:resumeButtonGlow 3s ease-in-out infinite;
+}
+.call-consult-btn::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:left 0.6s ease;
+}
+.call-consult-btn:hover::after{
+  left:100%;
+}
+.call-consult-btn:hover{
   transform:scale(1.05) rotate(1deg);
   box-shadow:0 8px 25px rgba(16,185,129,0.3);
 }
@@ -226,6 +267,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   animation: cardEntrance 0.6s ease-out backwards;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 
 .service-offering-card:nth-child(1) { animation-delay: 0.1s; }
@@ -233,6 +275,46 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
 .service-offering-card:nth-child(3) { animation-delay: 0.3s; }
 .service-offering-card:nth-child(4) { animation-delay: 0.4s; }
 .service-offering-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Subtle background graphics for each card */
+.service-offering-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.03) 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-offering-card:nth-child(1)::before {
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+              linear-gradient(135deg, transparent 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.service-offering-card:nth-child(2)::before {
+  background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+              linear-gradient(225deg, transparent 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.service-offering-card:nth-child(3)::before {
+  background: radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+              linear-gradient(45deg, transparent 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.service-offering-card:nth-child(4)::before {
+  background: radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+              linear-gradient(315deg, transparent 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.service-offering-card:nth-child(5)::before {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
+              conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(5, 150, 105, 0.02) 90deg, transparent 180deg);
+}
 
 .service-offering-card::after {
   content: '';
@@ -1017,6 +1099,18 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
     animation: resumeButtonGlow 4s ease-in-out infinite;
   }
   
+  .call-consult-btn {
+    margin: 16px auto 24px auto;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    width: 90%;
+    max-width: 280px;
+  }
+  
+  .call-consult-btn::before {
+    animation: resumeButtonGlow 4s ease-in-out infinite;
+  }
+  
   .cta-row .btn {
     min-width: auto;
     width: 90%;
@@ -1284,11 +1378,11 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .achievements-image {
-    order: 2;
-    display: block !important;
+    display: contents !important;
   }
   
   .achievements-image img {
+    order: 2;
     max-width: 100%;
     width: 100%;
     max-height: 210px;
@@ -1681,11 +1775,11 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sa
   }
   
   .achievements-image {
-    order: 2;
-    display: block !important;
+    display: contents !important;
   }
   
   .achievements-image img {
+    order: 2;
     max-width: 100%;
     max-height: 210px;
     object-fit: contain;
